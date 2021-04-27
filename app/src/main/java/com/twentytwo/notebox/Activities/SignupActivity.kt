@@ -17,7 +17,6 @@ import kotlinx.android.synthetic.main.activity_signup.*
 class SignupActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
-    private val bugdf = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
