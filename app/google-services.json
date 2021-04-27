@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "214715269761",
+    "project_id": "notebox-e707e",
+    "storage_bucket": "notebox-e707e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:214715269761:android:73c498ac1da61c155ec380",
+        "android_client_info": {
+          "package_name": "com.twentytwo.notebox"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "214715269761-d4kr5ui4tfb35oram9ur8tdeaq1vpseq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.twentytwo.notebox",
+            "certificate_hash": "55546453c069cacdbd34c1ac01eb64e802e041f5"
+          }
+        },
+        {
+          "client_id": "214715269761-igp8068chfo6ih4qrcsan8vodue81p6s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAcXA57hShDo2NamAMRTUCsof-0nIqMY6Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "214715269761-igp8068chfo6ih4qrcsan8vodue81p6s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
