@@ -48,13 +48,21 @@ class LoginActivity : AppCompatActivity() {
     private fun do_login() {
 
         if (email_bx.text.toString().isEmpty()) {
-            inputt_pass1.error = "please enter your email"
-            inputt_pass1.requestFocus()
+            email_bx.error = "please enter your email"
+            email_bx.requestFocus()
+            return
+        }else if(email_bx.text.toString().length <= 4 ){
+            email_bx.error = "please enter a valid email"
+            email_bx.requestFocus()
             return
         }
         if (pass_bx.text.toString().isEmpty()) {
-            inputt_pass1.error = "please enter password"
-            inputt_pass1.requestFocus()
+            pass_bx.error = "please enter password"
+            pass_bx.requestFocus()
+            return
+        }else if(pass_bx.text.toString().length<= 5){
+            pass_bx.error = "please check the password"
+            pass_bx.requestFocus()
             return
         }
         auth.signInWithEmailAndPassword(email_bx.text.toString(), pass_bx.text.toString())
@@ -64,8 +72,9 @@ class LoginActivity : AppCompatActivity() {
                     val user = auth.currentUser
                     updateUI(user)
                 } else {
+                    log_text.text="LOGIN FAILED! WRONG PASSWORD OR EMAIL"
                     // If sign in fails, display a message to the user.
-                    Toast.makeText(baseContext, "Authentication failed.",
+                    Toast.makeText(baseContext, "Authentication failed  ${task}.",
                         Toast.LENGTH_SHORT).show()
                     updateUI(null)
                 }
@@ -85,6 +94,10 @@ class LoginActivity : AppCompatActivity() {
                 startActivity(Intent(this, MainActivity::class.java))
                 finish()
             }else{
+
+                log_text.text = "PLEASE VERYFY YOUR EMAIL ADDRESS " +
+                        "\n A MAIL HAS BEEN SEND TO YOUR EMAIL ADDRESS"
+                FirebaseAuth.getInstance().signOut()
                 Toast.makeText(this, "PLEASE VERYFY YOUR EMAIL ADDRESS ", Toast.LENGTH_SHORT).show()
             }
         }else{

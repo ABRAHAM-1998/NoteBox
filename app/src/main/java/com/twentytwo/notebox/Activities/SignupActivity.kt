@@ -1,5 +1,6 @@
 package com.twentytwo.notebox.Activities
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
@@ -9,9 +10,14 @@ import android.widget.RadioGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.twentytwo.notebox.Firestore.FirestoreClass
+import com.twentytwo.notebox.Models.User
 import com.twentytwo.notebox.R
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_signup.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class SignupActivity : AppCompatActivity() {
@@ -19,6 +25,7 @@ class SignupActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
 
 
+    @SuppressLint("SimpleDateFormat")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
@@ -71,7 +78,7 @@ class SignupActivity : AppCompatActivity() {
                 inputt_pass1.error = "please enter inputt_pass1"
                 inputt_pass1.requestFocus()
                 return@setOnClickListener
-            } else if (inputt_pass1.text.toString().length <= 6) {
+            } else if (inputt_pass1.text.toString().length <= 5) {
                 inputt_pass1.error = "please ente atleast 6 char"
                 inputt_pass1.requestFocus()
                 return@setOnClickListener
@@ -94,9 +101,28 @@ class SignupActivity : AppCompatActivity() {
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
                         val user = auth.currentUser
+                        //===================================
+                        val sdf = SimpleDateFormat("dd/M/yyy hh:mm:ss")
+                        val currentday = sdf.format(Date())
+
+
+                        val fireebaseUser: FirebaseUser = task.result?.user!!
+                        val userdetails = User(
+                            fireebaseUser.uid,
+                            sgn_name.text.toString().trim(),
+                            sgn_email.text.toString().trim(),
+                            sgn_phone.text.toString().trim(),
+                            inputt_pass2.text.toString().trim(),
+                            currentday.toString()
+                        )
+                        FirestoreClass().registeraUser(this@SignupActivity,userdetails)
+
+
+                        //------------------------------------
                         user?.sendEmailVerification()
                             ?.addOnCompleteListener { task ->
                                 if (task.isSuccessful) {
+                                    FirebaseAuth.getInstance().signOut()
                                     startActivity(Intent(this, LoginActivity::class.java))
                                     finish()
                                 }
@@ -113,6 +139,14 @@ class SignupActivity : AppCompatActivity() {
 
 
     //--------------------------------------------------------------------
+    fun userRegistrationSuccess() {
+        Toast.makeText(this, "UserRegistration Success", Toast.LENGTH_SHORT).show()
+    }
+
+
+    fun userRegistrationFailure() {
+        Toast.makeText(this, "UserRegistration Failded to user", Toast.LENGTH_SHORT).show()
+    }
 }
 
 
