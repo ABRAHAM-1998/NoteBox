@@ -12,7 +12,11 @@ import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.UserProfileChangeRequest
+import com.google.firebase.ktx.Firebase
 import com.twentytwo.notebox.R
+import kotlinx.android.synthetic.main.activity_login.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,6 +26,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        auth = FirebaseAuth.getInstance()
+
 
         //=====================FULL-SCREEN===========================
         @Suppress("DEPRECATION")
@@ -37,19 +43,23 @@ class MainActivity : AppCompatActivity() {
     }
     //===============================M=E=N=U============================
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.main_menu, menu);
+        menuInflater.inflate(R.menu.main_menu, menu)
+
         return true
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val id = item.itemId;
-        if (id == R.id.add_action) {
-            Toast.makeText(this, "item Add Clicked", Toast.LENGTH_SHORT).show()
+        if (id == R.id.logout_tile) {
             showAlert()
             return true
-        } else {
-            Toast.makeText(this, "Seeting clicked", Toast.LENGTH_SHORT).show()
+        } else if(id == R.id.note_profile){
+            Toast.makeText(this, "Profile is commming soon", Toast.LENGTH_SHORT).show()
+            return true
+        }else if(id ==  R.id.note_settings){
+            Toast.makeText(this, "settings activity", Toast.LENGTH_SHORT).show()
             return true
         }
+        return true
     }
 //===================================A=L=E=R=T==L=O==G=O=U=T=====================
     private fun showAlert() {
@@ -82,4 +92,5 @@ class MainActivity : AppCompatActivity() {
         finish()
     }
     //============================================================================================
+
 }

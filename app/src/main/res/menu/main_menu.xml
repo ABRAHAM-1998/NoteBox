@@ -2,17 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/add_action"
+        android:id="@+id/logout_tile"
         app:showAsAction="ifRoom"
         android:icon="@drawable/logout_icon"
         android:title="LogOut">
     </item>
     <item
-        android:title="Settings"
+        android:title="Profile"
         app:showAsAction="never"
-        android:id="@+id/settings_action" />
+        android:id="@+id/note_profile" />
     <item
-        android:title="logoutnothing"
-        app:showAsAction="never"
-        android:id="@+id/setings2" />
+
+        android:id="@+id/note_settings"
+        android:title="Settings"
+        app:showAsAction="never" />
 </menu>
