@@ -34,11 +34,11 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginBottom="10dp"
-        android:forceDarkAllowed="true"
         android:background="@drawable/edittext_bg"
         android:focusable="true"
+        android:forceDarkAllowed="true"
 
-        android:hint="Enter name or email"
+        android:hint="Enter your email"
         android:textColorHighlight="#FFFFFF"
         android:textColorHint="@color/white"
         android:textSize="12sp"
@@ -52,12 +52,12 @@
         android:layout_alignEnd="@+id/email_bx"
         android:layout_alignRight="@+id/email_bx"
         android:layout_alignParentStart="true"
-        android:forceDarkAllowed="true"
         android:layout_alignParentLeft="true"
         android:layout_marginEnd="0dp"
         android:layout_marginRight="0dp"
         android:background="@drawable/edittext_bg"
         android:ems="10"
+        android:forceDarkAllowed="true"
         android:hint="Password"
         android:inputType="textPassword"
         android:textColorHint="@color/white"
@@ -70,7 +70,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/pass_bx"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:text="login"
         android:textColor="#FFFFFF" />
 
@@ -102,23 +102,13 @@
         android:id="@+id/signup_btn"
         android:layout_width="240dp"
         android:layout_height="36dp"
-        android:layout_below="@id/login_btn"
+        android:layout_below="@id/btn_forgetPass"
         android:layout_centerInParent="true"
-        android:layout_marginTop="20dp"
         android:backgroundTint="@color/white"
         android:forceDarkAllowed="true"
         android:text="DON'T HAVE AN ACCOUNT?SIGN UP!"
         android:textColor="@color/black"
         android:textSize="10sp" />
-
-    <ImageView
-        android:id="@+id/finger_btn"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_above="@id/textView2"
-        android:layout_marginBottom="10dp"
-        android:layout_centerInParent="true"
-        app:srcCompat="@drawable/ic_baseline_fingerprint_24" />
 
     <TextView
         android:id="@+id/textView2"
@@ -126,8 +116,8 @@
         android:layout_height="wrap_content"
         android:layout_above="@id/dev_id"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="10sp"
         android:layout_centerInParent="true"
+        android:layout_marginBottom="10sp"
         android:fontFamily="casual"
         android:text="TWENTYTWO~Note~Box"
         android:textColor="@color/white"
@@ -142,6 +132,32 @@
         android:text="Developer:: seven__z_e_r_0__nine"
         android:textColor="@color/white"
         android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/log_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pass_bx"
+        android:layout_marginLeft="10dp"
+        android:fontFamily="sans-serif-black"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="#FB0202"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/btn_forgetPass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/login_btn"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="10dp"
+        android:text="Forget password?"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="10sp"
         android:textStyle="bold" />
 
 </RelativeLayout>

@@ -24,13 +24,11 @@ class SignupActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
 
-
-    @SuppressLint("SimpleDateFormat")
+    @SuppressLint("SimpleDateFormat", "SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
         auth = FirebaseAuth.getInstance()
-
 
         val radioGroup = findViewById<RadioGroup>(R.id.radioGroup)
 
@@ -38,7 +36,6 @@ class SignupActivity : AppCompatActivity() {
             val gendertext = if (R.id.male_btn == checkedId) "male" else "female"
             Toast.makeText(applicationContext, gendertext, Toast.LENGTH_SHORT).show()
         }
-
         //=====================FULL-SCREEN===========================
         @Suppress("DEPRECATION")
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
@@ -49,7 +46,7 @@ class SignupActivity : AppCompatActivity() {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN,
             )
         }
-
+        //=============================r====R=E=G=I=S=T=E=R=I=N=G==================
         registerButon.setOnClickListener {
             if (sgn_name.text.toString().isEmpty()) {
                 sgn_name.error = "please enter name"
@@ -92,8 +89,6 @@ class SignupActivity : AppCompatActivity() {
                 inputt_pass1.requestFocus()
                 return@setOnClickListener
             }
-
-
             auth.createUserWithEmailAndPassword(
                 sgn_email.text.toString(),
                 inputt_pass2.text.toString()
@@ -115,21 +110,25 @@ class SignupActivity : AppCompatActivity() {
                             inputt_pass2.text.toString().trim(),
                             currentday.toString()
                         )
-                        FirestoreClass().registeraUser(this@SignupActivity,userdetails)
-
-
-                        //------------------------------------
+                        FirestoreClass().registeraUser(this@SignupActivity, userdetails)
+                        //-------------------
+                        //============================/==============EMAIL-VERI=============================
                         user?.sendEmailVerification()
                             ?.addOnCompleteListener { task ->
                                 if (task.isSuccessful) {
-                                    FirebaseAuth.getInstance().signOut()
-                                    startActivity(Intent(this, LoginActivity::class.java))
-                                    finish()
+                                    sign_llogTxt.text =
+                                        "AN EMAIL HASBEEN SEND TO YOUR EMAIL ADDRESS" +
+                                                "\n PLESASE VERYFY TO LOGIN"
+                                } else {
+                                    sign_llogTxt.text = "UNABLE TO SEND EMAIL VERIFICATION"
                                 }
                             }
                     } else {
+                        sign_llogTxt.text = "Sign Up failed. Try again after some time." +
+                                "\n EMAIL ALREADY IN USE! OR UNABLE TO SEMD EMAIL ADDRESS"
                         Toast.makeText(
-                            baseContext, "Sign Up failed. Try again after some time.",
+                            baseContext, "Sign Up failed. Try again after some time." +
+                                    "\n EMAIL ALREADY IN USE! OR UNABLE TO SEMD EMAIL ADDRESS",
                             Toast.LENGTH_SHORT
                         ).show()
                     }
@@ -137,14 +136,16 @@ class SignupActivity : AppCompatActivity() {
         }
     }
 
-
     //--------------------------------------------------------------------
     fun userRegistrationSuccess() {
+        FirebaseAuth.getInstance().signOut()
+        startActivity(Intent(this, LoginActivity::class.java))
+        finish()
         Toast.makeText(this, "UserRegistration Success", Toast.LENGTH_SHORT).show()
     }
 
-
     fun userRegistrationFailure() {
+        sign_llogTxt.text = "USER REGISTRATION FAILED!"
         Toast.makeText(this, "UserRegistration Failded to user", Toast.LENGTH_SHORT).show()
     }
 }

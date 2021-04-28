@@ -110,15 +110,6 @@
         android:textColor="@color/black"
         android:textSize="10sp" />
 
-    <ImageView
-        android:id="@+id/finger_btn"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_above="@id/textView2"
-        android:layout_centerInParent="true"
-        android:layout_marginBottom="10dp"
-        app:srcCompat="@drawable/ic_baseline_fingerprint_24" />
-
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
