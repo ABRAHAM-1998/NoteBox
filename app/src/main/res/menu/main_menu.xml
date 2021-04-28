@@ -12,7 +12,6 @@
         app:showAsAction="never"
         android:id="@+id/note_profile" />
     <item
-
         android:id="@+id/note_settings"
         android:title="Settings"
         app:showAsAction="never" />
