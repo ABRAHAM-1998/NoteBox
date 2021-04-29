@@ -11,10 +11,15 @@ import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.ktx.Firebase
+import com.twentytwo.notebox.Adapters.Main_Adapter_cycle
+import com.twentytwo.notebox.Models.recycler_mainDataClass
 import com.twentytwo.notebox.R
 import kotlinx.android.synthetic.main.activity_login.*
 
@@ -22,6 +27,12 @@ class MainActivity : AppCompatActivity() {
 
 
     private lateinit var auth: FirebaseAuth
+    //================
+    private var reccyclerViewMain: RecyclerView? = null
+    private var charItem: ArrayList<recycler_mainDataClass>? = null
+    private var gridLayoutManager: GridLayoutManager? = null
+    private var alphaAdapters: Main_Adapter_cycle? = null
+    ///////////////////////
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +51,30 @@ class MainActivity : AppCompatActivity() {
             )
         }
         //==============================================================================
+        //============================R=R=EC=Y=C=L=E=R===V=I=E=W=====================
+       reccyclerViewMain  = findViewById(R.id.main_recyclerView)
+        gridLayoutManager =
+            GridLayoutManager(applicationContext, 2, LinearLayoutManager.VERTICAL, false)
+        reccyclerViewMain?.layoutManager = gridLayoutManager
+        reccyclerViewMain?.setHasFixedSize(true)
+
+        charItem = ArrayList()
+        charItem = setAlphas()
+        alphaAdapters = Main_Adapter_cycle(applicationContext, charItem!!)
+        reccyclerViewMain?.adapter = alphaAdapters
+
     }
+
+    private fun setAlphas(): ArrayList<recycler_mainDataClass>? {
+        var arrayList: ArrayList<recycler_mainDataClass> = ArrayList()
+        arrayList.add(recycler_mainDataClass("B'DAYS",R.drawable.bday))
+        arrayList.add(recycler_mainDataClass("CONTACTS",R.drawable.contacts))
+        arrayList.add(recycler_mainDataClass("NOTES",R.drawable.notes))
+        arrayList.add(recycler_mainDataClass("NOTE~BOX \n LOCKER",R.drawable.locker))
+
+        return  arrayList
+    }
+
     //===============================M=E=N=U============================
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
