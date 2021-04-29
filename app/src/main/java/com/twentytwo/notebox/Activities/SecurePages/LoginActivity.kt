@@ -1,19 +1,15 @@
-package com.twentytwo.notebox.Activities
+package com.twentytwo.notebox.Activities.SecurePages
 
-import android.content.DialogInterface
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
-import android.util.Patterns
 import android.view.WindowInsets
 import android.view.WindowManager
-import android.widget.EditText
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.twentytwo.notebox.Activities.MainActivity
 import com.twentytwo.notebox.R
 import kotlinx.android.synthetic.main.activity_login.*
 

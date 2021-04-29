@@ -13,11 +13,11 @@
         android:theme="@style/Theme.NoteBox"
         tools:targetApi="m">
         <activity
-            android:name=".Activities.SignupActivity"
+            android:name=".Activities.SecurePages.SignupActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.MaterialComponents.NoActionBar" />
         <activity
-            android:name=".Activities.LoginActivity"
+            android:name=".Activities.SecurePages.LoginActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.MaterialComponents.NoActionBar" />
         <activity

@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.view.WindowInsets
 import android.view.WindowManager
 import android.view.animation.AnimationUtils
+import com.twentytwo.notebox.Activities.SecurePages.LoginActivity
 import com.twentytwo.notebox.R
 import kotlinx.android.synthetic.main.activity_splash_screen.*
 import java.util.*

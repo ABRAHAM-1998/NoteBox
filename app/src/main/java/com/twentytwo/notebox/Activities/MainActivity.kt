@@ -15,13 +15,10 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.auth.UserProfileChangeRequest
-import com.google.firebase.ktx.Firebase
+import com.twentytwo.notebox.Activities.SecurePages.LoginActivity
 import com.twentytwo.notebox.Adapters.Main_Adapter_cycle
 import com.twentytwo.notebox.Models.recycler_mainDataClass
 import com.twentytwo.notebox.R
-import kotlinx.android.synthetic.main.activity_login.*
 
 class MainActivity : AppCompatActivity() {
 

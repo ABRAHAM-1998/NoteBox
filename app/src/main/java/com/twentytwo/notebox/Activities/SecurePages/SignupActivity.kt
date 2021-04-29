@@ -1,4 +1,4 @@
-package com.twentytwo.notebox.Activities
+package com.twentytwo.notebox.Activities.SecurePages
 
 import android.annotation.SuppressLint
 import android.content.Intent
