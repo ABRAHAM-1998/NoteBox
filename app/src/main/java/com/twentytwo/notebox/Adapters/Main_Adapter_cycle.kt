@@ -33,6 +33,7 @@ class Main_Adapter_cycle(
         val maindata : recycler_mainDataClass = main_data_list.get(position)
         holder.titles.text = maindata.title_item
         holder.main_rec_img.setImageResource(maindata.icons!!)
+        holder.titles.textSize = maindata.size.toFloat()
     }
 
     override fun getItemCount(): Int {

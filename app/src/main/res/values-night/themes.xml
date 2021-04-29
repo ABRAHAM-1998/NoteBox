@@ -2,13 +2,13 @@
     <!-- Base application theme. -->
     <style name="Theme.NoteBox" parent="Theme.MaterialComponents.DayNight.DarkActionBar.Bridge">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/black</item>
-        <item name="colorPrimaryVariant">@color/black</item>
-        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorPrimary">#817A7A</item>
+        <item name="colorPrimaryVariant">#817A7A</item>
+        <item name="colorOnPrimary">#817A7A</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_200</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorOnSecondary">#817A7A</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l" >?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
