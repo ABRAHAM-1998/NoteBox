@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.twentytwo.notebox.Activities.SecurePages.LoginActivity
+import com.twentytwo.notebox.Activities.SecurePages.ProfileActivity
 import com.twentytwo.notebox.Adapters.Main_Adapter_cycle
 import com.twentytwo.notebox.Models.recycler_mainDataClass
 import com.twentytwo.notebox.R
@@ -38,15 +39,15 @@ class MainActivity : AppCompatActivity() {
 
 
         //=====================FULL-SCREEN===========================
-        @Suppress("DEPRECATION")
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            window.insetsController?.hide(WindowInsets.Type.statusBars())
-        } else {
-            window.setFlags(
-                WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN,
-            )
-        }
+//        @Suppress("DEPRECATION")
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+//            window.insetsController?.hide(WindowInsets.Type.statusBars())
+//        } else {
+//            window.setFlags(
+//                WindowManager.LayoutParams.FLAG_FULLSCREEN,
+//                WindowManager.LayoutParams.FLAG_FULLSCREEN,
+//            )
+//        }
         //==============================================================================
         //============================R=R=EC=Y=C=L=E=R===V=I=E=W=====================
        reccyclerViewMain  = findViewById(R.id.main_recyclerView)
@@ -87,6 +88,7 @@ class MainActivity : AppCompatActivity() {
             showAlert()
             return true
         } else if(id == R.id.note_profile){
+            startActivity(Intent(this,ProfileActivity::class.java))
             Toast.makeText(this, "Profile is commming soon", Toast.LENGTH_SHORT).show()
             return true
         }else if(id ==  R.id.note_settings){
