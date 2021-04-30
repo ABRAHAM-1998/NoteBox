@@ -1,12 +1,15 @@
 package com.twentytwo.notebox.Activities.DashBoard
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.twentytwo.notebox.Activities.BdaysActivity.BirthdayActivity
 import com.twentytwo.notebox.R
 
 class Main_Adapter_cycle(
@@ -33,6 +36,19 @@ class Main_Adapter_cycle(
         holder.titles.text = maindata.title_item
         holder.main_rec_img.setImageResource(maindata.icons!!)
         holder.titles.textSize = maindata.size.toFloat()
+
+        holder.titles.setOnClickListener{
+
+
+
+            if(position == 0){
+                val intent = Intent(contex, BirthdayActivity::class.java)
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                contex.startActivity(intent)
+            }else{
+                Toast.makeText(contex, "do nothiinng itda ann errfor", Toast.LENGTH_SHORT).show()
+
+            }            }
     }
 
     override fun getItemCount(): Int {
