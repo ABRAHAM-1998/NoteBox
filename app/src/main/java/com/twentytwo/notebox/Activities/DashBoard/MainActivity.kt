@@ -1,14 +1,11 @@
-package com.twentytwo.notebox.Activities
+package com.twentytwo.notebox.Activities.DashBoard
 
 import android.app.AlertDialog
 import android.content.DialogInterface
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.view.WindowInsets
-import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
@@ -17,8 +14,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.twentytwo.notebox.Activities.SecurePages.LoginActivity
 import com.twentytwo.notebox.Activities.SecurePages.ProfileActivity
-import com.twentytwo.notebox.Adapters.Main_Adapter_cycle
-import com.twentytwo.notebox.Models.recycler_mainDataClass
 import com.twentytwo.notebox.R
 
 class MainActivity : AppCompatActivity() {

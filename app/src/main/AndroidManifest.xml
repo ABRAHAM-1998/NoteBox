@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.twentytwo.notebox">
+    package="com.twentytwo.notebox" >
 
     <application
         android:allowBackup="true"
@@ -11,8 +11,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NoteBox"
         android:usesCleartextTraffic="true"
-        tools:targetApi="m">
-        <activity android:name=".Activities.BdaysActivity.BirthdayActivity"></activity>
+        tools:targetApi="m" >
+        <activity android:name=".Activities.BdaysActivity.CreateBirthdayActivity" >
+        </activity>
+        <activity android:name=".Activities.BdaysActivity.BirthdayActivity" />
         <activity android:name=".Activities.SecurePages.ProfileActivity" />
         <activity
             android:name=".Activities.SecurePages.SignupActivity"
@@ -23,16 +25,16 @@
             android:screenOrientation="portrait"
             android:theme="@style/Theme.MaterialComponents.NoActionBar" />
         <activity
-            android:name=".Activities.SplashScreen"
+            android:name=".Activities.RandomActivity.SplashScreen"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.MaterialComponents.NoActionBar">
+            android:theme="@style/Theme.MaterialComponents.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.MainActivity" />
+        <activity android:name=".Activities.DashBoard.MainActivity" />
     </application>
 
 </manifest>

@@ -9,7 +9,6 @@ import com.google.firebase.firestore.Source
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
-import com.twentytwo.notebox.Models.User
 import com.twentytwo.notebox.R
 import kotlinx.android.synthetic.main.activity_profile.*
 

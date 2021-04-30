@@ -9,7 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.twentytwo.notebox.Activities.MainActivity
+import com.twentytwo.notebox.Activities.DashBoard.MainActivity
 import com.twentytwo.notebox.R
 import kotlinx.android.synthetic.main.activity_login.*
 

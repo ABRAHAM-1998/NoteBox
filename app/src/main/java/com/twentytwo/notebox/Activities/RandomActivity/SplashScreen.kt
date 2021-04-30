@@ -1,4 +1,4 @@
-package com.twentytwo.notebox.Activities
+package com.twentytwo.notebox.Activities.RandomActivity
 
 import android.content.Context
 import android.content.Intent

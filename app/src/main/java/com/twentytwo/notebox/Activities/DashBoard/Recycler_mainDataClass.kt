@@ -1,4 +1,4 @@
-package com.twentytwo.notebox.Models
+package com.twentytwo.notebox.Activities.DashBoard
 
 import android.media.Image
 

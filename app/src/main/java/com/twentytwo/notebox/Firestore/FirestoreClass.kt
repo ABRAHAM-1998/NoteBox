@@ -2,12 +2,12 @@ package com.twentytwo.notebox.Firestore
 import  com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import com.twentytwo.notebox.Activities.SecurePages.SignupActivity
-import com.twentytwo.notebox.Models.User
+import com.twentytwo.notebox.Activities.SecurePages.User
 
 class FirestoreClass {
     private val mFireStore =FirebaseFirestore.getInstance()
 
-    fun registeraUser(activity: SignupActivity, userInfo:User){
+    fun registeraUser(activity: SignupActivity, userInfo: User){
         mFireStore.collection("UsersDetails")
             .document(userInfo.id)
             .set(userInfo, SetOptions.merge())

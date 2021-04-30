@@ -12,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.twentytwo.notebox.Firestore.FirestoreClass
-import com.twentytwo.notebox.Models.User
 import com.twentytwo.notebox.R
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_signup.*

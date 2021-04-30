@@ -1,4 +1,4 @@
-package com.twentytwo.notebox.Adapters
+package com.twentytwo.notebox.Activities.DashBoard
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.twentytwo.notebox.Models.recycler_mainDataClass
 import com.twentytwo.notebox.R
 
 class Main_Adapter_cycle(
