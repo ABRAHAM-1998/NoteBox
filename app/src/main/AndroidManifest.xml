@@ -12,7 +12,8 @@
         android:theme="@style/Theme.NoteBox"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".Activities.SecurePages.ProfileActivity"></activity>
+        <activity android:name=".Activities.BdaysActivity.BirthdayActivity"></activity>
+        <activity android:name=".Activities.SecurePages.ProfileActivity" />
         <activity
             android:name=".Activities.SecurePages.SignupActivity"
             android:screenOrientation="portrait"
