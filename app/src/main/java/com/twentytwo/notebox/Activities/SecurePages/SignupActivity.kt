@@ -6,8 +6,7 @@ import android.os.Build
 import android.os.Bundle
 import android.view.WindowInsets
 import android.view.WindowManager
-import android.widget.RadioGroup
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -30,9 +29,14 @@ class SignupActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
 
         val radioGroup = findViewById<RadioGroup>(R.id.radioGroup)
+        var gendertext = ""
+        var CheckBox = false
+        checkBox.setOnCheckedChangeListener { compoundButton: CompoundButton, b: Boolean ->
+            CheckBox = b
+        }
 
         radioGroup?.setOnCheckedChangeListener { group, checkedId ->
-            val gendertext = if (R.id.male_btn == checkedId) "male" else "female"
+             gendertext = if (R.id.male_btn == checkedId) "male" else "female"
             Toast.makeText(applicationContext, gendertext, Toast.LENGTH_SHORT).show()
         }
         //=====================FULL-SCREEN===========================
@@ -88,6 +92,18 @@ class SignupActivity : AppCompatActivity() {
                 inputt_pass1.requestFocus()
                 return@setOnClickListener
             }
+            if(gendertext.isEmpty()){
+                female_btn.error ="select"
+                male_btn.error ="select"
+                radioGroup.requestFocus()
+                return@setOnClickListener
+            }
+            if (!checkBox.isChecked) {
+                checkBox.error = "please accept terms and conmditions"
+                checkBox.requestFocus()
+                return@setOnClickListener
+            }
+
             auth.createUserWithEmailAndPassword(
                 sgn_email.text.toString(),
                 inputt_pass2.text.toString()
@@ -107,7 +123,9 @@ class SignupActivity : AppCompatActivity() {
                             sgn_email.text.toString().trim(),
                             sgn_phone.text.toString().trim(),
                             inputt_pass2.text.toString().trim(),
-                            currentday.toString()
+                            currentday.toString(),
+                            gendertext,
+                            CheckBox
                         )
                         FirestoreClass().registeraUser(this@SignupActivity, userdetails)
                         //-------------------

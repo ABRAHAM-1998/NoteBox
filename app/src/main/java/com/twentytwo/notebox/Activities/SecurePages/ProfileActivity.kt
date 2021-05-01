@@ -11,7 +11,16 @@ import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 import com.twentytwo.notebox.R
 import kotlinx.android.synthetic.main.activity_profile.*
-
+data class UserList(
+    val id: String = "",
+    val name: String = "",
+    val email: String = "",
+    val mobile: String = "",
+    val password: String = "",
+    val date_created : String ="",
+    val gender: String = "",
+    val termsncd: Boolean=false
+)
 class ProfileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +40,7 @@ class ProfileActivity : AppCompatActivity() {
                 Toast.makeText(this, "${document?.data}", Toast.LENGTH_SHORT).show()
                 Log.d("TAG", "Cached document data: ${document?.data}")
                 if (document != null) {
-                    val users = document.toObject<User>()
+                    val users = document.toObject<UserList>()
                         profile_name.text = users?.name.toString()
                     profile_email.text = users?.email.toString()
                     profile_mobile.text = users?.mobile.toString()

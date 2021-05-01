@@ -14,11 +14,14 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
+        android:background="@drawable/boreder_recycler_view"
         android:layout_height="wrap_content">
 
 
         <TextView
             android:id="@+id/b1"
+            android:forceDarkAllowed="false"
+            android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
@@ -31,6 +34,8 @@
 
         <TextView
             android:id="@+id/bday_name"
+            android:forceDarkAllowed="false"
+            android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -44,6 +49,8 @@
 
         <TextView
             android:id="@+id/b2"
+            android:forceDarkAllowed="false"
+            android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/b1"
@@ -54,6 +61,8 @@
 
         <TextView
             android:id="@+id/bday_date"
+            android:forceDarkAllowed="false"
+            android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/bday_name"
@@ -69,6 +78,8 @@
 
         <Switch
             android:id="@+id/bday_switch"
+            android:textColor="@color/black"
+            android:forceDarkAllowed="false"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/bday_name"
