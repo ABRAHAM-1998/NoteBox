@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.twentytwo.notebox"
-    >
-    <uses-permission android:name="android.permission.INTERNET"/>
+    package="com.twentytwo.notebox">
 
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -15,6 +14,7 @@
         android:theme="@style/Theme.NoteBox"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
+        <activity android:name=".Activities.LOCKER.LockerLoginPage"></activity>
         <activity
             android:name=".Activities.BdaysActivity.CreateBirthdayActivity"
             android:screenOrientation="portrait"
