@@ -28,30 +28,39 @@ class Main_Adapter_cycle(
         parent: ViewGroup,
         viewType: Int
     ): ViewHolder {
-        return ViewHolder(LayoutInflater.from(contex).inflate(R.layout.main_recycler_item,parent,false))
+        return ViewHolder(
+            LayoutInflater.from(contex).inflate(R.layout.main_recycler_item, parent, false)
+        )
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val maindata : recycler_mainDataClass = main_data_list.get(position)
+        val maindata: recycler_mainDataClass = main_data_list.get(position)
         holder.titles.text = maindata.title_item
         holder.main_rec_img.setImageResource(maindata.icons!!)
         holder.titles.textSize = maindata.size.toFloat()
 
-        holder.titles.setOnClickListener{
+        holder.titles.setOnClickListener {
+                funItemTouched(position)
+        }
+        holder.main_rec_img.setOnClickListener {
+            funItemTouched(position)
+        }
+    }
+
+    private fun funItemTouched(position: Int) {
 
 
+        if (position == 0) {
+            val intent = Intent(contex, BirthdayActivity::class.java)
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            contex.startActivity(intent)
+        } else {
+            Toast.makeText(contex, "do nothiinng itda ann errfor", Toast.LENGTH_SHORT).show()
 
-            if(position == 0){
-                val intent = Intent(contex, BirthdayActivity::class.java)
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                contex.startActivity(intent)
-            }else{
-                Toast.makeText(contex, "do nothiinng itda ann errfor", Toast.LENGTH_SHORT).show()
-
-            }            }
+        }
     }
 
     override fun getItemCount(): Int {
-        return  main_data_list.size
+        return main_data_list.size
     }
 }

@@ -39,5 +39,18 @@ class FirestoreClass {
             }
 
     }
+    fun UpdateBday(activity:CreateBirthdayActivity,Bdays: bdaydata) {
+        val sdf = SimpleDateFormat("dd/M/yyy hh:mm:ss")
+
+        mFireStore.collection("BIRTHDAYS").document(Bdays.created)
+            .set(Bdays, SetOptions.merge())
+            .addOnSuccessListener {
+                activity.CreateBdaySuccess()
+            }
+            .addOnFailureListener {
+                activity.CreateBdayfailure()
+            }
+
+    }
 
 }

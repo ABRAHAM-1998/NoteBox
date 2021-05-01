@@ -60,12 +60,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun setAlphas(): ArrayList<recycler_mainDataClass>? {
         var arrayList: ArrayList<recycler_mainDataClass> = ArrayList()
-        arrayList.add(recycler_mainDataClass("B'DAYS",R.drawable.bday,24))
-        arrayList.add(recycler_mainDataClass("CONTACTS",R.drawable.contacts,24))
-        arrayList.add(recycler_mainDataClass("NOTES",R.drawable.notes,24))
-        arrayList.add(recycler_mainDataClass("NOTE~BOX \n LOCKER",R.drawable.locker,22))
+        arrayList.add(recycler_mainDataClass("B'DAYS",R.drawable.bday,20))
+        arrayList.add(recycler_mainDataClass("CONTACTS",R.drawable.contacts,20))
+        arrayList.add(recycler_mainDataClass("NOTES",R.drawable.notes,20))
+        arrayList.add(recycler_mainDataClass("NOTE~BOX \n LOCKER",R.drawable.locker,20))
         arrayList.add(recycler_mainDataClass("CERTIFICATES",R.drawable.certificate,20))
-        arrayList.add(recycler_mainDataClass("IDENTIFICATION \n CARDS",R.drawable.cards,18))
+        arrayList.add(recycler_mainDataClass("IDENTITY \n CARDS",R.drawable.cards,20))
 
 
         return  arrayList
