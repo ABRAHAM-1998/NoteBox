@@ -3,9 +3,11 @@ package com.twentytwo.notebox.Firestore
 import  com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import com.twentytwo.notebox.Activities.BdaysActivity.CreateBirthdayActivity
+import com.twentytwo.notebox.Activities.CONTACTS.CreateContacts
 import com.twentytwo.notebox.Activities.SecurePages.SignupActivity
 import com.twentytwo.notebox.Activities.SecurePages.User
 import com.twentytwo.notebox.Activities.SecurePages.bdaydata
+import com.twentytwo.notebox.Activities.SecurePages.datacontacts
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -51,6 +53,17 @@ class FirestoreClass {
                 activity.CreateBdayfailure()
             }
 
+    }
+
+    fun CreateContacts(activity: CreateContacts, contactData: datacontacts) {
+        mFireStore.collection("CONTACTS").document(contactData.created)
+            .set(contactData, SetOptions.merge())
+            .addOnSuccessListener {
+                activity.CC_ContractsSucurd()
+            }
+            .addOnFailureListener {
+                activity.CC_Failed()
+            }
     }
 
 }

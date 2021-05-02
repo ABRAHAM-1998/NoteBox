@@ -10,6 +10,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.twentytwo.notebox.Activities.BdaysActivity.BirthdayActivity
+import com.twentytwo.notebox.Activities.CONTACTS.Contacts
 import com.twentytwo.notebox.Activities.LOCKER.LockerLoginPage
 import com.twentytwo.notebox.R
 
@@ -60,7 +61,7 @@ class Main_Adapter_cycle(
 
         }
         if (position == 1) {
-            val intent = Intent(contex, BirthdayActivity::class.java)
+            val intent = Intent(contex, Contacts::class.java)
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             contex.startActivity(intent)
         } else {

@@ -88,7 +88,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/bday_name"
-            android:layout_toStartOf="@id/bd_edit"
+            android:layout_toStartOf="@id/ct_edit"
             android:layout_marginTop="20dp"
             android:forceDarkAllowed="false"
             android:text="Notify"
@@ -96,7 +96,7 @@
             tools:ignore="UseSwitchCompatOrMaterialXml" />
 
         <ImageView
-            android:id="@+id/bd_delete"
+            android:id="@+id/ct_delete"
             android:layout_width="22dp"
             android:layout_height="32dp"
             android:layout_alignParentTop="true"
@@ -109,10 +109,10 @@
             app:srcCompat="@drawable/delete_icon" />
 
         <ImageView
-            android:id="@+id/bd_edit"
+            android:id="@+id/ct_edit"
             android:layout_width="22dp"
             android:layout_height="32dp"
-            android:layout_below="@+id/bd_delete"
+            android:layout_below="@+id/ct_delete"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"

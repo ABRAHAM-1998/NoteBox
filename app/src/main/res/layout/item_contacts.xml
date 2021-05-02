@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:alpha="0.7"
+    android:backgroundTint="@color/black"
+    android:forceDarkAllowed="false"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="5dp">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:forceDarkAllowed="false">
+
+
+        <TextView
+            android:id="@+id/c1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:forceDarkAllowed="false"
+            android:text="NAME ::"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/cts_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_toEndOf="@id/c1"
+            android:fontFamily="sans-serif-black"
+            android:forceDarkAllowed="false"
+            android:text="djflkdfj"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+
+
+        <ImageView
+            android:id="@+id/ct_delete"
+            android:layout_width="22dp"
+            android:layout_height="32dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="5dp"
+            android:forceHasOverlappingRendering="true"
+            app:srcCompat="@drawable/delete_icon" />
+
+        <ImageView
+            android:id="@+id/ct_edit"
+            android:layout_width="22dp"
+            android:layout_height="32dp"
+            android:layout_below="@+id/ct_delete"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            app:srcCompat="@drawable/edit_icon" />
+
+        <TextView
+            android:id="@+id/c2"
+            android:layout_below="@id/c1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:forceDarkAllowed="false"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:text="MOBILE ::" />
+        <TextView
+            android:id="@+id/cts_mobile"
+            android:layout_below="@id/cts_name"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_toEndOf="@id/c2"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:forceDarkAllowed="false"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:text="6574687434578" />
+
+        <TextView
+            android:id="@+id/c3"
+            android:layout_below="@id/c2"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:forceDarkAllowed="false"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:text="EMAIL ::" />
+        <TextView
+            android:id="@+id/cts_email"
+            android:layout_below="@id/cts_mobile"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_toEndOf="@id/c2"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:forceDarkAllowed="false"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:text="6574687434578" />
+        <TextView
+            android:id="@+id/c4"
+            android:layout_marginBottom="20dp"
+            android:layout_below="@id/c3"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:forceDarkAllowed="false"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:text="ADDRESS ::" />
+        <TextView
+            android:id="@+id/cts_address"
+            android:layout_marginBottom="20dp"
+            android:layout_below="@id/cts_email"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_toEndOf="@id/c4"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:forceDarkAllowed="false"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:text="6574687434578" />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

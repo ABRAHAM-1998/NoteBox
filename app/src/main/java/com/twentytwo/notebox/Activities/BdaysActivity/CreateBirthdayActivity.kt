@@ -37,7 +37,6 @@ class CreateBirthdayActivity : AppCompatActivity() {
             cb_create_button.text = "Update"
             cb_1.text = "UPDATE BIRTHDAY EVENT"
 
-            cb_create_button.setOnClickListener {
                 cb_create_button.setOnClickListener {
                     val day = cb_calenderView.dayOfMonth.toString().trim()
                     val month = (cb_calenderView.month + 1).toString().trim()
@@ -59,7 +58,7 @@ class CreateBirthdayActivity : AppCompatActivity() {
                         FirestoreClass().UpdateBday(this@CreateBirthdayActivity, bdaydata)
                     }
                 }
-            }
+
         } else {
             cb_create_button.setOnClickListener {
                 val day = cb_calenderView.dayOfMonth.toString().trim()

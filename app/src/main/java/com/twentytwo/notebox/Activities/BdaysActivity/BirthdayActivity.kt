@@ -3,21 +3,18 @@ package com.twentytwo.notebox.Activities.BdaysActivity
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Switch
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.twentytwo.notebox.R
@@ -68,8 +65,8 @@ class BirthdayActivity : AppCompatActivity() {
                 var Bd_name = holder.itemView.findViewById<TextView>(R.id.bday_name)
                 var Bd_date = holder.itemView.findViewById<TextView>(R.id.bday_date)
                 var remind_me = holder.itemView.findViewById<Switch>(R.id.bday_switch)
-                var deletebtn = holder.itemView.findViewById<ImageView>(R.id.bd_delete)
-                var editvtn = holder.itemView.findViewById<ImageView>(R.id.bd_edit)
+                var deletebtn = holder.itemView.findViewById<ImageView>(R.id.ct_delete)
+                var editvtn = holder.itemView.findViewById<ImageView>(R.id.ct_edit)
 
                 Bd_name.text = model.names
                 Bd_date.text = model.date

@@ -41,10 +41,10 @@ class ProfileActivity : AppCompatActivity() {
                 Log.d("TAG", "Cached document data: ${document?.data}")
                 if (document != null) {
                     val users = document.toObject<UserList>()
-                        profile_name.text = users?.name.toString()
-                    profile_email.text = users?.email.toString()
-                    profile_mobile.text = users?.mobile.toString()
-                    profile_gender.text = "Male :: ${users?.gender.toString()}"
+                    tv_name.text = users?.name.toString()
+                    tv_email.text = users?.email.toString()
+                    tv_phone.text = users?.mobile.toString()
+                    tv_gender.text = "Male :: ${users?.gender.toString()}"
 
 
                 }

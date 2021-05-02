@@ -14,7 +14,9 @@
         android:theme="@style/Theme.NoteBox"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".Activities.LOCKER.LockerLoginPage"></activity>
+        <activity android:name=".Activities.CONTACTS.CreateContacts"></activity>
+        <activity android:name=".Activities.CONTACTS.Contacts" />
+        <activity android:name=".Activities.LOCKER.LockerLoginPage" />
         <activity
             android:name=".Activities.BdaysActivity.CreateBirthdayActivity"
             android:screenOrientation="portrait"

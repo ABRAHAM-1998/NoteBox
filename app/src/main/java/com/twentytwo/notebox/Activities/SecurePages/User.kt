@@ -17,3 +17,12 @@ class bdaydata(
     val remind:Boolean,
     val created:String=""
 )
+
+data class datacontacts(
+    val id: String = "",
+    val name: String = "",
+    val email:String="",
+    val mobile: String="",
+    val address: String="",
+    val created:String=""
+)
