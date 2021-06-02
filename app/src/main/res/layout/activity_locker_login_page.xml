@@ -70,10 +70,10 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="RE-ENTER PASSCODE"
-        android:inputType="textPassword" />
+        android:inputType="numberPassword" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button_LOcker"
         android:background="#FF0000"
         android:layout_margin="30dp"
         android:layout_below="@id/crt_pass2"
@@ -81,5 +81,15 @@
         android:textColor="#FFFFFF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ENTER" />
+        android:text="CREATE" />
+
+    <TextView
+        android:id="@+id/errTxt"
+        android:layout_above="@id/button_LOcker"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:textColor="#FF0000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="" />
 </RelativeLayout>

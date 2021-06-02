@@ -1,4 +1,4 @@
-package com.twentytwo.notebox.Activities.CONTACTS
+package com.twentytwo.notebox.Activities.LOCKER
 
 import android.content.Intent
 import android.os.Bundle
@@ -15,68 +15,64 @@ import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import com.twentytwo.notebox.Activities.SecurePages.datacontacts
+import com.twentytwo.notebox.Activities.SecurePages.data_locker
 import com.twentytwo.notebox.R
 import kotlinx.android.synthetic.main.activity_contacts.*
+import kotlinx.android.synthetic.main.activity_locker_home.*
 
+class Locker_ViewHOLdere(itemView: View) : RecyclerView.ViewHolder(itemView)
 
-
-
-class contacts_ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
-
-class Contacts : AppCompatActivity() {
-
-
+class LockerHome : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_contacts)
+        setContentView(R.layout.activity_locker_home)
 
-        float_conytacts.setOnClickListener {
-            startActivity(Intent(this, CreateContacts::class.java))
+        floatlocker.setOnClickListener {
+            startActivity(Intent(this, CreateLockeritems::class.java))
         }
-
-
         ///////////////////////
         val uid = FirebaseAuth.getInstance().currentUser.uid
         val db = Firebase.firestore
 
-        val query = db.collection("CONTACTS")
+        val query = db.collection("LOCKER")
             .whereEqualTo("id", uid)
             .orderBy("created")
 
         val options =
-            FirestoreRecyclerOptions.Builder<datacontacts>()
-                .setQuery(query, datacontacts::class.java)
+            FirestoreRecyclerOptions.Builder<data_locker>()
+                .setQuery(query, data_locker::class.java)
                 .setLifecycleOwner(this).build()
 
 
         val adapter =
-            object : FirestoreRecyclerAdapter<datacontacts, contacts_ViewHolder>(options) {
+            object : FirestoreRecyclerAdapter<data_locker, Locker_ViewHOLdere>(options) {
                 override fun onCreateViewHolder(
                     parent: ViewGroup,
                     viewType: Int
-                ): contacts_ViewHolder {
-                    val view = LayoutInflater.from(this@Contacts)
-                        .inflate(R.layout.item_contacts, parent, false)
-                    return contacts_ViewHolder(view)
+                ): Locker_ViewHOLdere {
+                    val view = LayoutInflater.from(this@LockerHome)
+                        .inflate(R.layout.item_locker, parent, false)
+                    return Locker_ViewHOLdere(view)
                 }
 
                 override fun onBindViewHolder(
-                    holder: contacts_ViewHolder,
+                    holder: Locker_ViewHOLdere,
                     position: Int,
-                    model: datacontacts
+                    model: data_locker
                 ) {
+                    var appname = holder.itemView.findViewById<TextView>(R.id.lk_app_name)
                     var name = holder.itemView.findViewById<TextView>(R.id.lk_item_name)
                     var mobile = holder.itemView.findViewById<TextView>(R.id.lk_mobile)
                     var email = holder.itemView.findViewById<TextView>(R.id.lk_email)
-                    var address = holder.itemView.findViewById<TextView>(R.id.lk_pass)
+                    var password = holder.itemView.findViewById<TextView>(R.id.lk_pass)
                     var deletebtn = holder.itemView.findViewById<ImageView>(R.id.ct_delete)
                     var editvtn = holder.itemView.findViewById<ImageView>(R.id.ct_edit)
-
-                    name.text = model.name
+                    appname.text = model.app_name
+                    name.text = model.usename
                     mobile.text = model.mobile
                     email.text = model.email
-                    address.text = model.address
+                    password.text = model.password
+                    mobile.text = model.mobile
 
                     deletebtn.setOnClickListener {
                         deleteItem(position)
@@ -88,8 +84,8 @@ class Contacts : AppCompatActivity() {
                     notifyItemRemoved(positionr)
                 }
             }
-        contact_recyclerview.adapter = adapter
-        contact_recyclerview.layoutManager = LinearLayoutManager(this)
+
+        LockerREecycler.adapter = adapter
+        LockerREecycler.layoutManager = LinearLayoutManager(this)
     }
 }
-

@@ -1,5 +1,7 @@
 package com.twentytwo.notebox.Activities.SecurePages
 
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -17,9 +19,12 @@ data class UserList(
     val email: String = "",
     val mobile: String = "",
     val password: String = "",
-    val date_created : String ="",
+    val date_created: String = "",
     val gender: String = "",
-    val termsncd: Boolean=false
+    val termsncd: Boolean = false,
+    val lkeystatus: Boolean = false,
+    val lkey: String = ""
+
 )
 class ProfileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,6 +46,12 @@ class ProfileActivity : AppCompatActivity() {
                 Log.d("TAG", "Cached document data: ${document?.data}")
                 if (document != null) {
                     val users = document.toObject<UserList>()
+
+
+                    if (users?.lkeystatus == true){
+                        lockerTxt.text = "ACTIVE"
+                        lockerTxt.setTextColor(Color.GREEN)
+                    }
                     tv_name.text = users?.name.toString()
                     tv_email.text = users?.email.toString()
                     tv_phone.text = users?.mobile.toString()

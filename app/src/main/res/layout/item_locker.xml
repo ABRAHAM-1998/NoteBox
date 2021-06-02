@@ -19,11 +19,11 @@
 
         <TextView
             android:id="@+id/l1"
+            android:layout_below="@id/lk_apptxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="0dp"
             android:layout_marginEnd="20dp"
             android:fontFamily="sans-serif-condensed-medium"
             android:forceDarkAllowed="false"
@@ -32,23 +32,22 @@
             android:textSize="14sp"
             android:textStyle="bold" />
 
+
         <TextView
             android:id="@+id/lk_item_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="0dp"
             android:layout_marginEnd="20dp"
             android:layout_toEndOf="@id/l1"
             android:fontFamily="sans-serif-black"
             android:forceDarkAllowed="false"
             android:text="djflkdfj"
+            android:layout_below="@id/lk_app_name"
             android:textAllCaps="true"
             android:textColor="@color/white"
             android:textSize="14sp"
             android:textStyle="bold" />
-
-
 
         <ImageView
             android:id="@+id/ct_delete"
@@ -133,21 +132,22 @@
             android:textSize="14sp"
             android:textStyle="bold"
             android:text="6574687434578" />
+
         <TextView
             android:id="@+id/c4"
-            android:layout_marginBottom="20dp"
-            android:layout_below="@id/c3"
-            android:layout_height="wrap_content"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/c3"
             android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
+            android:layout_marginBottom="20dp"
             android:fontFamily="sans-serif-condensed-medium"
             android:forceDarkAllowed="false"
+            android:text="PASSWD ::"
             android:textColor="@color/white"
             android:textSize="14sp"
-            android:textStyle="bold"
-            android:text="ADDRESS ::" />
+            android:textStyle="bold" />
         <TextView
             android:id="@+id/lk_pass"
             android:layout_marginBottom="20dp"
@@ -164,6 +164,37 @@
             android:textSize="14sp"
             android:textStyle="bold"
             android:text="6574687434578" />
+
+        <TextView
+            android:id="@+id/lk_apptxt"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:forceDarkAllowed="false"
+            android:textColor="@color/headings"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="APP NAME :" />
+
+        <TextView
+            android:id="@+id/lk_app_name"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:forceDarkAllowed="false"
+            android:layout_toEndOf="@id/lk_apptxt"
+            android:textColor="@color/followersBg"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
 
     </RelativeLayout>
 

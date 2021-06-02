@@ -7,11 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.twentytwo.notebox.Activities.BdaysActivity.BirthdayActivity
+import com.twentytwo.notebox.Activities.CERTIFICATES.CertificatesActivity
 import com.twentytwo.notebox.Activities.CONTACTS.Contacts
 import com.twentytwo.notebox.Activities.LOCKER.LockerLoginPage
+import com.twentytwo.notebox.Activities.Notes.Notes
 import com.twentytwo.notebox.R
 
 class Main_Adapter_cycle(
@@ -42,7 +43,7 @@ class Main_Adapter_cycle(
         holder.titles.textSize = maindata.size.toFloat()
 
         holder.titles.setOnClickListener {
-                funItemTouched(position)
+            funItemTouched(position)
         }
         holder.main_rec_img.setOnClickListener {
             funItemTouched(position)
@@ -56,33 +57,26 @@ class Main_Adapter_cycle(
             val intent = Intent(contex, BirthdayActivity::class.java)
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             contex.startActivity(intent)
-        } else {
-            Toast.makeText(contex, "do nothiinng itda ann errfor", Toast.LENGTH_SHORT).show()
-
         }
         if (position == 1) {
             val intent = Intent(contex, Contacts::class.java)
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             contex.startActivity(intent)
-        } else {
-            Toast.makeText(contex, "do nothiinng itda ann errfor", Toast.LENGTH_SHORT).show()
-
         }
         if (position == 2) {
-            val intent = Intent(contex, BirthdayActivity::class.java)
+            val intent = Intent(contex, Notes::class.java)
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             contex.startActivity(intent)
-        } else {
-            Toast.makeText(contex, "do nothiinng itda ann errfor", Toast.LENGTH_SHORT).show()
-
         }
         if (position == 3) {
             val intent = Intent(contex, LockerLoginPage::class.java)
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             contex.startActivity(intent)
-        } else {
-            Toast.makeText(contex, "do nothiinng itda ann errfor", Toast.LENGTH_SHORT).show()
-
+        }
+        if (position == 4) {
+            val intent = Intent(contex, CertificatesActivity::class.java)
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            contex.startActivity(intent)
         }
     }
 

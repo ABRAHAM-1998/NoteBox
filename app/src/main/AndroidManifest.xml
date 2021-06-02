@@ -14,7 +14,13 @@
         android:theme="@style/Theme.NoteBox"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".Activities.CONTACTS.CreateContacts"></activity>
+        <activity android:name=".Activities.CERTIFICATES.CreateCertificates"></activity>
+        <activity android:name=".Activities.CERTIFICATES.CertificatesActivity" />
+        <activity android:name=".Activities.LOCKER.CreateLockeritems" />
+        <activity android:name=".Activities.LOCKER.LockerHome" />
+        <activity android:name=".Activities.Notes.Create_Notes" />
+        <activity android:name=".Activities.Notes.Notes" />
+        <activity android:name=".Activities.CONTACTS.CreateContacts" />
         <activity android:name=".Activities.CONTACTS.Contacts" />
         <activity android:name=".Activities.LOCKER.LockerLoginPage" />
         <activity

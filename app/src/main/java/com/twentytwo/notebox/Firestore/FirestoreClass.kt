@@ -1,15 +1,13 @@
 package com.twentytwo.notebox.Firestore
 
-import  com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import com.twentytwo.notebox.Activities.BdaysActivity.CreateBirthdayActivity
 import com.twentytwo.notebox.Activities.CONTACTS.CreateContacts
-import com.twentytwo.notebox.Activities.SecurePages.SignupActivity
-import com.twentytwo.notebox.Activities.SecurePages.User
-import com.twentytwo.notebox.Activities.SecurePages.bdaydata
-import com.twentytwo.notebox.Activities.SecurePages.datacontacts
+import com.twentytwo.notebox.Activities.LOCKER.CreateLockeritems
+import com.twentytwo.notebox.Activities.Notes.Create_Notes
+import com.twentytwo.notebox.Activities.SecurePages.*
 import java.text.SimpleDateFormat
-import java.util.*
 
 class FirestoreClass {
     private val mFireStore = FirebaseFirestore.getInstance()
@@ -27,7 +25,7 @@ class FirestoreClass {
 
     }
 
-    fun CreatwBirthday(activity:CreateBirthdayActivity,Bdays: bdaydata) {
+    fun CreatwBirthday(activity: CreateBirthdayActivity, Bdays: bdaydata) {
         val sdf = SimpleDateFormat("dd/M/yyy hh:mm:ss")
         val currentday = sdf.calendar.time
 
@@ -41,7 +39,8 @@ class FirestoreClass {
             }
 
     }
-    fun UpdateBday(activity:CreateBirthdayActivity,Bdays: bdaydata) {
+
+    fun UpdateBday(activity: CreateBirthdayActivity, Bdays: bdaydata) {
         val sdf = SimpleDateFormat("dd/M/yyy hh:mm:ss")
 
         mFireStore.collection("BIRTHDAYS").document(Bdays.created)
@@ -66,4 +65,26 @@ class FirestoreClass {
             }
     }
 
+    fun CreateLOCkerData(activty: CreateLockeritems, dataLocker: data_locker) {
+        mFireStore.collection("LOCKER").document(dataLocker.created)
+            .set(dataLocker, SetOptions.merge())
+            .addOnSuccessListener {
+                activty.Create_LockerSuccess()
+            }
+            .addOnFailureListener {
+                activty.Create_LockerFailed()
+            }
+    }
+
+    fun CreateNotes(activity: Create_Notes, noteData: notes) {
+        mFireStore.collection("NOTES").document(noteData.created)
+            .set(noteData, SetOptions.merge())
+            .addOnSuccessListener {
+                activity.CreateNotesSuccess()
+            }
+            .addOnFailureListener {
+                activity.CreateNotesfails()
+            }
+    }
 }
+

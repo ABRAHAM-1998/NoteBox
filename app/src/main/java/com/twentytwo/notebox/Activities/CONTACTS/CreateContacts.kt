@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
-import com.twentytwo.notebox.Activities.SecurePages.bdaydata
 import com.twentytwo.notebox.Activities.SecurePages.datacontacts
 import com.twentytwo.notebox.Firestore.FirestoreClass
 import com.twentytwo.notebox.R
