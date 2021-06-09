@@ -42,8 +42,6 @@ class ProfileActivity : AppCompatActivity() {
             if (task.isSuccessful) {
                 // Document found in the offline cache
                 val document = task.result
-                Toast.makeText(this, "${document?.data}", Toast.LENGTH_SHORT).show()
-                Log.d("TAG", "Cached document data: ${document?.data}")
                 if (document != null) {
                     val users = document.toObject<UserList>()
 

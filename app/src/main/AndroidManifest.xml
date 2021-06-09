@@ -4,6 +4,7 @@
     package="com.twentytwo.notebox">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -14,15 +15,47 @@
         android:theme="@style/Theme.NoteBox"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".Activities.CERTIFICATES.CreateCertificates"></activity>
-        <activity android:name=".Activities.CERTIFICATES.CertificatesActivity" />
-        <activity android:name=".Activities.LOCKER.CreateLockeritems" />
-        <activity android:name=".Activities.LOCKER.LockerHome" />
-        <activity android:name=".Activities.Notes.Create_Notes" />
-        <activity android:name=".Activities.Notes.Notes" />
-        <activity android:name=".Activities.CONTACTS.CreateContacts" />
-        <activity android:name=".Activities.CONTACTS.Contacts" />
-        <activity android:name=".Activities.LOCKER.LockerLoginPage" />
+        <activity
+            android:name=".Activities.Notes.NoteViewAcxctivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MaterialComponents.NoActionBar" />
+
+        <activity
+            android:name=".Activities.CERTIFICATES.CreateCertificates"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MaterialComponents.NoActionBar" />
+        <activity
+            android:name=".Activities.CERTIFICATES.CertificatesActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MaterialComponents.NoActionBar" />
+        <activity
+            android:name=".Activities.LOCKER.CreateLockeritems"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MaterialComponents.NoActionBar" />
+        <activity
+            android:name=".Activities.LOCKER.LockerHome"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MaterialComponents.NoActionBar" />
+        <activity
+            android:name=".Activities.Notes.Create_Notes"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MaterialComponents.NoActionBar" />
+        <activity
+            android:name=".Activities.Notes.Notes"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MaterialComponents.NoActionBar" />
+        <activity
+            android:name=".Activities.CONTACTS.CreateContacts"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MaterialComponents.NoActionBar" />
+        <activity
+            android:name=".Activities.CONTACTS.Contacts"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MaterialComponents.NoActionBar" />
+        <activity
+            android:name=".Activities.LOCKER.LockerLoginPage"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MaterialComponents.NoActionBar" />
         <activity
             android:name=".Activities.BdaysActivity.CreateBirthdayActivity"
             android:screenOrientation="portrait"

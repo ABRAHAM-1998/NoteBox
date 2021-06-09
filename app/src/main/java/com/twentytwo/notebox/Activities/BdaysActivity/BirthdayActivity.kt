@@ -2,12 +2,12 @@ package com.twentytwo.notebox.Activities.BdaysActivity
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.Switch
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -64,16 +64,19 @@ class BirthdayActivity : AppCompatActivity() {
             override fun onBindViewHolder(holder: Bday_ViewHolder, position: Int, model: B_data) {
                 var Bd_name = holder.itemView.findViewById<TextView>(R.id.bday_name)
                 var Bd_date = holder.itemView.findViewById<TextView>(R.id.bday_date)
-                var remind_me = holder.itemView.findViewById<Switch>(R.id.bday_switch)
+                var remind_me = holder.itemView.findViewById<ImageView>(R.id.bday_switch)
                 var deletebtn = holder.itemView.findViewById<ImageView>(R.id.ct_delete)
                 var editvtn = holder.itemView.findViewById<ImageView>(R.id.ct_edit)
 
                 Bd_name.text = model.names
                 Bd_date.text = model.date
-                remind_me.isChecked = model.remind == true
 
-                editvtn.setOnClickListener{
-                    val intent = Intent(this@BirthdayActivity,CreateBirthdayActivity::class.java)
+                if (model.remind == true) {
+                    remind_me.setColorFilter(Color.parseColor("#FF4FF10A"))
+                }
+
+                editvtn.setOnClickListener {
+                    val intent = Intent(this@BirthdayActivity, CreateBirthdayActivity::class.java)
                     intent.putExtra("name", model.names)
                     intent.putExtra("notyfy", model.remind)
                     intent.putExtra("created", model.created)
@@ -81,11 +84,12 @@ class BirthdayActivity : AppCompatActivity() {
                 }
 
                 deletebtn.setOnClickListener {
-                    deleteItem( position)
+                    deleteItem(position)
 
                 }
             }
-            fun deleteItem( positionr: Int){
+
+            fun deleteItem(positionr: Int) {
                 snapshots.getSnapshot(positionr).reference.delete()
                 notifyItemRemoved(positionr)
 

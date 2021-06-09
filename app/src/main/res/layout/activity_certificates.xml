@@ -24,10 +24,14 @@
         android:contentDescription="TODO"
         android:focusable="true" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/certifiacets_recycler"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
 
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvListImg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

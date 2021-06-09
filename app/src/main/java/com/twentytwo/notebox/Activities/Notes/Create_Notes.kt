@@ -1,5 +1,6 @@
 package com.twentytwo.notebox.Activities.Notes
 
+import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,6 +8,7 @@ import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import com.twentytwo.notebox.Activities.BdaysActivity.BirthdayActivity
 import com.twentytwo.notebox.Activities.SecurePages.notes
 import com.twentytwo.notebox.Firestore.FirestoreClass
 import com.twentytwo.notebox.R
@@ -45,6 +47,7 @@ class Create_Notes : AppCompatActivity() {
     }
 
     fun CreateNotesSuccess() {
+        startActivity(Intent(this, Notes::class.java))
 
         Toast.makeText(this, "noters success Success", Toast.LENGTH_SHORT).show()
     }

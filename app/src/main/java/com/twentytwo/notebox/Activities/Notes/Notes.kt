@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
@@ -15,6 +16,7 @@ import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.twentytwo.notebox.Activities.BdaysActivity.CreateBirthdayActivity
 import com.twentytwo.notebox.Activities.SecurePages.notes
 import com.twentytwo.notebox.R
 import kotlinx.android.synthetic.main.activity_notes.*
@@ -49,10 +51,23 @@ class Notes : AppCompatActivity() {
             override fun onBindViewHolder(holder: noteVierwHolder, position: Int, model: notes) {
                 var NoteTitle = holder.itemView.findViewById<TextView>(R.id.NotesTitle)
                 var deletebtn = holder.itemView.findViewById<ImageView>(R.id.note_delete)
+                var datenote = holder.itemView.findViewById<TextView>(R.id.datenotes)
+
+                var itemnotess = holder.itemView.findViewById<CardView>(R.id.itemnotess)
                 NoteTitle.text = model.noteTitle
+                datenote.text = model.created
+
+                itemnotess.setOnClickListener{
+                    val intent = Intent(this@Notes, NoteViewAcxctivity::class.java)
+                    intent.putExtra("title", model.noteTitle)
+                    intent.putExtra("content", model.noteContent)
+                    intent.putExtra("created", model.created)
+                    startActivity(intent)
+                }
                 deletebtn.setOnClickListener {
                     deleteItem(position)
                 }
+
             }
 
             fun deleteItem(positionr: Int) {

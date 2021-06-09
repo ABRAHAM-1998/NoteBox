@@ -1,5 +1,6 @@
 package com.twentytwo.notebox.Activities.CONTACTS
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -39,6 +40,7 @@ class CreateContacts : AppCompatActivity() {
     }
 
     fun CC_ContractsSucurd() {
+        startActivity(Intent(this, Contacts::class.java))
 
         Toast.makeText(this, "Bdsay success Success", Toast.LENGTH_SHORT).show()
     }

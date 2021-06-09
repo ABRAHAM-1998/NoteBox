@@ -3,6 +3,7 @@ package com.twentytwo.notebox.Firestore
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import com.twentytwo.notebox.Activities.BdaysActivity.CreateBirthdayActivity
+import com.twentytwo.notebox.Activities.CERTIFICATES.CreateCertificates
 import com.twentytwo.notebox.Activities.CONTACTS.CreateContacts
 import com.twentytwo.notebox.Activities.LOCKER.CreateLockeritems
 import com.twentytwo.notebox.Activities.Notes.Create_Notes
@@ -85,6 +86,18 @@ class FirestoreClass {
             .addOnFailureListener {
                 activity.CreateNotesfails()
             }
+    }
+
+    fun createCertific(activity: CreateCertificates, certdata: certific) {
+        mFireStore.collection("CERTIFICATES").document(certdata.created)
+            .set(certdata, SetOptions.merge())
+            .addOnSuccessListener {
+                activity.certiSuccess()
+            }
+            .addOnFailureListener {
+                activity.Certifail()
+            }
+
     }
 }
 

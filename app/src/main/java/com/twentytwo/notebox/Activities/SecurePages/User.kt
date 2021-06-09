@@ -47,3 +47,11 @@ data class notes(
     val noteContent: String = "",
     val created: String = ""
 )
+
+data class  certific(
+    val id: String = "",
+    val imgUrl: String = "",
+    val descreption: String = "",
+    val filename:String="",
+    val created: String = ""
+)

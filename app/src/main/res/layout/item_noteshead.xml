@@ -5,15 +5,17 @@
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
     android:alpha="0.7"
-    android:backgroundTint="@color/black"
+    android:id="@+id/itemnotess"
+    android:backgroundTint="#012C28"
     android:forceDarkAllowed="false"
     app:cardCornerRadius="8dp"
-    app:cardElevation="5dp">
+    app:cardElevation="3dp">
 
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/notes_grad"
         android:forceDarkAllowed="false">
 
 
@@ -43,6 +45,16 @@
             android:layout_marginBottom="5dp"
             android:forceHasOverlappingRendering="true"
             app:srcCompat="@drawable/delete_icon" />
+
+        <TextView
+            android:id="@+id/datenotes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            android:layout_marginStart="10dp"
+            android:layout_below="@id/NotesTitle"
+            android:text="TextView" />
 
 
     </RelativeLayout>

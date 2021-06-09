@@ -11,7 +11,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="210dp"
-        android:background="@color/black"
+        android:background="@drawable/bday_grad"
         android:forceDarkAllowed="false"
         android:scrollbarSize="1dp">
 

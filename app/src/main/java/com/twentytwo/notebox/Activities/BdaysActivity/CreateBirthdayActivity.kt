@@ -1,5 +1,6 @@
 package com.twentytwo.notebox.Activities.BdaysActivity
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.WindowInsets
@@ -85,6 +86,7 @@ class CreateBirthdayActivity : AppCompatActivity() {
         fun CreateBdaySuccess() {
 
             Toast.makeText(this, "Bdsay success Success", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this,BirthdayActivity::class.java))
         }
 
         fun CreateBdayfailure() {
