@@ -1,6 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Theme.NoteBox" parent="Theme.MaterialComponents.DayNight">
+
+    <style name="Theme.NoteBox" parent="Theme.MaterialComponents.Light">
         <!-- Primary brand color. -->
         <item name="colorPrimary">#8E24AA</item>
         <item name="colorPrimaryVariant">#8E24AA</item>
@@ -8,9 +9,9 @@
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_200</item>
-        <item name="colorOnSecondary">@color/purple_500</item>
+        <item name="colorOnSecondary">#8E24AA</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="29">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+<!--        <item name="android:theme">@style/Widget.MaterialComponents.Toolbar.Primary</item>-->
     </style>
 </resources>

@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:forceDarkAllowed="false"
+    android:background="@drawable/bday_grad"
     tools:context=".Activities.BdaysActivity.BirthdayActivity">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

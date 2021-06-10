@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.twentytwo.notebox.Activities.BdaysActivity.BirthdayActivity
 import com.twentytwo.notebox.Activities.SecurePages.datacontacts
 import com.twentytwo.notebox.Firestore.FirestoreClass
 import com.twentytwo.notebox.R
@@ -40,7 +41,9 @@ class CreateContacts : AppCompatActivity() {
     }
 
     fun CC_ContractsSucurd() {
-        startActivity(Intent(this, Contacts::class.java))
+        val intent = Intent(this, Contacts::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+        startActivity(intent)
 
         Toast.makeText(this, "Bdsay success Success", Toast.LENGTH_SHORT).show()
     }

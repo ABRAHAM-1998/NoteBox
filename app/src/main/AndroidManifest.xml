@@ -4,7 +4,9 @@
     package="com.twentytwo.notebox">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
 
     <application
         android:allowBackup="true"
@@ -15,11 +17,12 @@
         android:theme="@style/Theme.NoteBox"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
+        <activity android:name=".Activities.SecurePages.forgrtPassword"></activity>
         <activity
             android:name=".Activities.Notes.NoteViewAcxctivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.MaterialComponents.NoActionBar" />
-
+            android:theme="@style/Theme.MaterialComponents.NoActionBar"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".Activities.CERTIFICATES.CreateCertificates"
             android:screenOrientation="portrait"
@@ -43,7 +46,7 @@
         <activity
             android:name=".Activities.Notes.Notes"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.MaterialComponents.NoActionBar" />
+            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
         <activity
             android:name=".Activities.CONTACTS.CreateContacts"
             android:screenOrientation="portrait"
@@ -51,7 +54,7 @@
         <activity
             android:name=".Activities.CONTACTS.Contacts"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.MaterialComponents.NoActionBar" />
+            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
         <activity
             android:name=".Activities.LOCKER.LockerLoginPage"
             android:screenOrientation="portrait"
@@ -63,7 +66,7 @@
         <activity
             android:name=".Activities.BdaysActivity.BirthdayActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.MaterialComponents.NoActionBar" />
+            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
         <activity android:name=".Activities.SecurePages.ProfileActivity" />
         <activity
             android:name=".Activities.SecurePages.SignupActivity"
@@ -83,7 +86,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.DashBoard.MainActivity" />
+        <activity
+            android:name=".Activities.DashBoard.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity" android:screenOrientation="portrait" android:theme="@style/Base.Theme.AppCompat"/>
     </application>
 
 </manifest>

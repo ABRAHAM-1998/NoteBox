@@ -3,6 +3,7 @@ package com.twentytwo.notebox.Activities.DashBoard
 import android.app.AlertDialog
 import android.content.DialogInterface
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -60,7 +61,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setAlphas(): ArrayList<recycler_mainDataClass>? {
         var arrayList: ArrayList<recycler_mainDataClass> = ArrayList()
-        arrayList.add(recycler_mainDataClass("B'DAYS",R.drawable.bday,20))
+        arrayList.add(recycler_mainDataClass("B'DAYS \n jgjh",R.drawable.bday,15))
         arrayList.add(recycler_mainDataClass("CONTACTS",R.drawable.contacts,20))
         arrayList.add(recycler_mainDataClass("NOTES",R.drawable.notes,20))
         arrayList.add(recycler_mainDataClass("NOTE~BOX \n LOCKER",R.drawable.locker,20))
@@ -96,7 +97,7 @@ class MainActivity : AppCompatActivity() {
     private fun showAlert() {
         lateinit var dialog: AlertDialog
         val alertDialog: AlertDialog.Builder = AlertDialog.Builder(this)
-        alertDialog.setTitle("Note~Box Logout?")
+        alertDialog.setTitle("Note~Box?")
         alertDialog.setMessage("Do you want to logout? \n Fingerprint Authentication will dissable unless you login manually")
 
         val dilaogOnClickListener = DialogInterface.OnClickListener { _, which ->

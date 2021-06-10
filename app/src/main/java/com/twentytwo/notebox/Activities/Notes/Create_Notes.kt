@@ -47,7 +47,9 @@ class Create_Notes : AppCompatActivity() {
     }
 
     fun CreateNotesSuccess() {
-        startActivity(Intent(this, Notes::class.java))
+        val intent = Intent(this, Notes::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+        startActivity(intent)
 
         Toast.makeText(this, "noters success Success", Toast.LENGTH_SHORT).show()
     }

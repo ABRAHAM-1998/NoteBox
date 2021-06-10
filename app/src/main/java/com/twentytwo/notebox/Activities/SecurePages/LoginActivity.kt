@@ -3,15 +3,20 @@ package com.twentytwo.notebox.Activities.SecurePages
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.twentytwo.notebox.Activities.DashBoard.MainActivity
 import com.twentytwo.notebox.R
 import kotlinx.android.synthetic.main.activity_login.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class LoginActivity : AppCompatActivity() {
@@ -42,7 +47,7 @@ class LoginActivity : AppCompatActivity() {
             do_login()
         }
         btn_forgetPass.setOnClickListener {
-            Toast.makeText(this, "comming soon", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, forgrtPassword::class.java))
         }
     }
 
@@ -83,15 +88,37 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
     }
+
     override fun onStart() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser: FirebaseUser? = auth.currentUser
         updateUI(currentUser)
     }
+
     private fun updateUI(currentUser: FirebaseUser?) {
+        val uid = currentUser?.uid
+        val db = Firebase.firestore
+        val docRef = db.collection("UsersDetails").document("$uid")
+        val sdf = SimpleDateFormat("dd/M/yyy hh:mm:ss")
+        val currentday = sdf.format(Date())
+
         if (currentUser != null) {
             if (currentUser.isEmailVerified) {
+                docRef
+                    .update("lastlogin", "$currentday")
+                    .addOnSuccessListener {
+                        Toast.makeText(this, "jgfhkjhgdjk", Toast.LENGTH_SHORT).show()
+                    }
+
+                    .addOnFailureListener { e ->
+                        Log.w(
+                            "TAG",
+                            "Error updating document",
+                            e
+                        )
+                    }
+
                 startActivity(Intent(this, MainActivity::class.java))
                 finish()
             } else {

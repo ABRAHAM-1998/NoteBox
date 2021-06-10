@@ -38,27 +38,27 @@ class CreateBirthdayActivity : AppCompatActivity() {
             cb_create_button.text = "Update"
             cb_1.text = "UPDATE BIRTHDAY EVENT"
 
-                cb_create_button.setOnClickListener {
-                    val day = cb_calenderView.dayOfMonth.toString().trim()
-                    val month = (cb_calenderView.month + 1).toString().trim()
-                    val year = cb_calenderView.year.toString().trim()
-                    val sdf = SimpleDateFormat("dd/M/yyy hh:mm:ss")
-                    val currentday = intent.getStringExtra("created")
+            cb_create_button.setOnClickListener {
+                val day = cb_calenderView.dayOfMonth.toString().trim()
+                val month = (cb_calenderView.month + 1).toString().trim()
+                val year = cb_calenderView.year.toString().trim()
+                val sdf = SimpleDateFormat("dd/M/yyy hh:mm:ss")
+                val currentday = intent.getStringExtra("created")
 
-                    val uid = FirebaseAuth.getInstance().currentUser.uid
-                    val bdaydata = currentday?.let { it1 ->
-                        bdaydata(
-                            uid,
-                            cb_name.text.toString().trim(),
-                            "$day-$month-$year",
-                            cb_remiderSwitch.isChecked,
-                            it1
-                        )
-                    }
-                    if (bdaydata != null) {
-                        FirestoreClass().UpdateBday(this@CreateBirthdayActivity, bdaydata)
-                    }
+                val uid = FirebaseAuth.getInstance().currentUser.uid
+                val bdaydata = currentday?.let { it1 ->
+                    bdaydata(
+                        uid,
+                        cb_name.text.toString().trim(),
+                        "$day-$month-$year",
+                        cb_remiderSwitch.isChecked,
+                        it1
+                    )
                 }
+                if (bdaydata != null) {
+                    FirestoreClass().UpdateBday(this@CreateBirthdayActivity, bdaydata)
+                }
+            }
 
         } else {
             cb_create_button.setOnClickListener {
@@ -83,13 +83,16 @@ class CreateBirthdayActivity : AppCompatActivity() {
     }
 
 
-        fun CreateBdaySuccess() {
+    fun CreateBdaySuccess() {
 
-            Toast.makeText(this, "Bdsay success Success", Toast.LENGTH_SHORT).show()
-            startActivity(Intent(this,BirthdayActivity::class.java))
-        }
+        Toast.makeText(this, "Bdsay success Success", Toast.LENGTH_SHORT).show()
 
-        fun CreateBdayfailure() {
-            Toast.makeText(this, "bday fsaild Failded to user", Toast.LENGTH_SHORT).show()
-        }
+        val intent = Intent(this, BirthdayActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+        startActivity(intent)
     }
+
+    fun CreateBdayfailure() {
+        Toast.makeText(this, "bday fsaild Failded to user", Toast.LENGTH_SHORT).show()
+    }
+}

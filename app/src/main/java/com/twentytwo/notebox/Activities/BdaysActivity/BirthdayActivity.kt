@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
@@ -34,10 +35,10 @@ class Bday_ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 class BirthdayActivity : AppCompatActivity() {
 
 
-    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_birthday)
+
 
         ///////////////////////
         val uid = FirebaseAuth.getInstance().currentUser.uid

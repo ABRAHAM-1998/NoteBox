@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:forceDarkAllowed="false"
+    android:background="@drawable/bday_grad"
     tools:context=".Activities.CONTACTS.Contacts">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -26,6 +28,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/contact_recyclerview"
+        android:background="@drawable/bday_grad"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

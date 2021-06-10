@@ -3,6 +3,7 @@ package com.twentytwo.notebox.Activities.CERTIFICATES
 import android.app.Activity
 import android.app.ProgressDialog
 import android.content.Intent
+import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -13,6 +14,9 @@ import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
+import com.theartofdev.edmodo.cropper.CropImage
+import com.theartofdev.edmodo.cropper.CropImageView
+import com.twentytwo.notebox.Activities.BdaysActivity.BirthdayActivity
 import com.twentytwo.notebox.Activities.Notes.Notes
 import com.twentytwo.notebox.Activities.SecurePages.certific
 import com.twentytwo.notebox.Firestore.FirestoreClass
@@ -103,10 +107,14 @@ class CreateCertificates : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK &&
-            data != null && data.data != null
-        ) {
-            filePath = data.data
+        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
+
+            val result = CropImage.getActivityResult(data)
+            ImagePrewiew.setImageURI(result.uri)
+            val bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, result.uri)
+            if (data != null) {
+                filePath = result.uri
+            }
             try {
                 val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, filePath)
                 ImagePrewiew!!.setImageBitmap(bitmap)
@@ -117,14 +125,23 @@ class CreateCertificates : AppCompatActivity() {
     }
 
     private fun showFileChoser() {
-        val intent = Intent()
-        intent.type = "image/*"
-        intent.action = Intent.ACTION_GET_CONTENT
-        startActivityForResult(Intent.createChooser(intent, "SELECT PICTURE"), PICK_IMAGE_REQUEST)
+        CropImage.activity()
+            .setGuidelines(CropImageView.Guidelines.ON)
+            .setAspectRatio(5,4)
+            .setOutputCompressQuality(20)
+            .setOutputCompressFormat(Bitmap.CompressFormat.JPEG)
+            .start(this)
+
+//        val intent = Intent()
+//        intent.type = "image/*"
+//        intent.action = Intent.ACTION_GET_CONTENT
+//        startActivityForResult(Intent.createChooser(intent, "SELECT PICTURE"), PICK_IMAGE_REQUEST)
     }
 
     fun certiSuccess() {
-        startActivity(Intent(this, CertificatesActivity::class.java))
+        val intent = Intent(this, CertificatesActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+        startActivity(intent)
 
         Toast.makeText(this, "Bdsay success Success", Toast.LENGTH_SHORT).show()
     }
