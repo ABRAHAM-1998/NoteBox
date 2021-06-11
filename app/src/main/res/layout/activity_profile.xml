@@ -190,7 +190,6 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"
                     android:text="abrahamjolly33390@gmail.com"
-                    android:textColor="#ffffff"
                     android:textSize="18sp" />
 
                 <View
@@ -220,7 +219,6 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"
                     android:text="12343-555-0157"
-                    android:textColor="#FFFFFF"
                     android:textSize="18sp" />
 
                 <View
@@ -249,7 +247,6 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"
                     android:text="kuttu12344545"
-                    android:textColor="#FFFFFF"
                     android:textSize="18sp" />
 
                 <View
@@ -279,7 +276,6 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"
                     android:text="facebook.com/josbiin"
-                    android:textColor="#FFFFFF"
                     android:textSize="18sp" />
 
                 <View

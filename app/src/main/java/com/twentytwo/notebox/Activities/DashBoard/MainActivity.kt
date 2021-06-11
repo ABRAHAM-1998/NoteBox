@@ -3,7 +3,6 @@ package com.twentytwo.notebox.Activities.DashBoard
 import android.app.AlertDialog
 import android.content.DialogInterface
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -13,6 +12,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
+import com.twentytwo.notebox.Activities.SECRETDOOR.DeveloperActivity
 import com.twentytwo.notebox.Activities.SecurePages.LoginActivity
 import com.twentytwo.notebox.Activities.SecurePages.ProfileActivity
 import com.twentytwo.notebox.R
@@ -89,6 +89,10 @@ class MainActivity : AppCompatActivity() {
             return true
         }else if(id ==  R.id.note_settings){
             Toast.makeText(this, "settings activity", Toast.LENGTH_SHORT).show()
+            return true
+        }else if(id ==  R.id.developerid){
+            Toast.makeText(this, "Developer activity", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, DeveloperActivity::class.java))
             return true
         }
         return true

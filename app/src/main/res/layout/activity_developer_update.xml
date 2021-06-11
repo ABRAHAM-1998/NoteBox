@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bday_grad"
+    tools:context=".Activities.SECRETDOOR.Developer_Update">
+
+    <TextView
+        android:id="@+id/secUserDev"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="30dp"
+        android:textSize="28dp"
+        android:textStyle="bold"
+        android:text="UPDATE" />
+
+    <EditText
+        android:id="@+id/FG"
+        android:layout_width="match_parent"
+        android:layout_margin="25dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/secUserDev"
+        android:hint="FOLLOWING"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:inputType="number" />
+    <EditText
+        android:id="@+id/FS"
+        android:layout_width="match_parent"
+        android:layout_margin="25dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/FG"
+        android:hint="FOLLOWERS"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/INSTAID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/FS"
+        android:layout_margin="25dp"
+        android:ems="10"
+        android:hint="INSTAGRAM LINK"
+        android:inputType="textPersonName"
+        android:text="" />
+    <EditText
+        android:id="@+id/FBID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/INSTAID"
+        android:layout_margin="25dp"
+        android:ems="10"
+        android:hint="FACEBOOK LINK"
+        android:inputType="textPersonName"
+        android:text="" />
+    <EditText
+        android:id="@+id/WEBID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/FBID"
+        android:layout_margin="25dp"
+        android:ems="10"
+        android:hint="WEBSITE LINK"
+        android:inputType="textPersonName"
+        android:text="" />
+
+    <Button
+        android:id="@+id/devUpdateBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/WEBID"
+        android:textColor="@color/white"
+        android:layout_centerHorizontal="true"
+        android:text="UPDATE" />
+</RelativeLayout>

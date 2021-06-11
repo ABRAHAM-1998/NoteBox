@@ -37,7 +37,6 @@ class Notes : AppCompatActivity() {
 
         val query = db.collection("NOTES")
             .whereEqualTo("id", uid)
-            .orderBy("created")
         val options = FirestoreRecyclerOptions.Builder<notes>().setQuery(query, notes::class.java)
             .setLifecycleOwner(this).build()
 

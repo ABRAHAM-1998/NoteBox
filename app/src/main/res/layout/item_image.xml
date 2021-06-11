@@ -6,7 +6,6 @@
     android:layout_margin="8dp"
     android:alpha="0.7"
     android:id="@+id/itemnotess"
-    android:background="@color/white"
     android:forceDarkAllowed="false"
     app:cardCornerRadius="8dp"
     app:cardElevation="3dp">
@@ -15,7 +14,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:background="@drawable/bday_grad"
         android:forceDarkAllowed="false">
 
         <TextView
@@ -30,7 +29,7 @@
             android:layout_margin="5dp"
             android:text="Image Name"
             android:forceDarkAllowed="false"
-            android:textColor="@color/teal_700"/>
+            android:textColor="@color/white"/>
         <ImageView
             android:id="@+id/imgView"
             android:layout_width="match_parent"
@@ -40,9 +39,29 @@
             android:id="@+id/button"
             android:layout_centerHorizontal="true"
             android:layout_below="@id/imgView"
+            android:textColor="@color/white"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="DOWNLOAD" />
+            android:text="DOWNLOAD URL" />
+
+        <TextView
+            android:id="@+id/hpplink"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/button"
+            android:text="@string/text_link_ehs"
+            android:padding="10dp"
+            android:autoLink="web"
+            android:textSize="10sp"/>
+        <ImageView
+            android:id="@+id/deleteCert"
+            android:layout_width="22dp"
+            android:layout_height="32dp"
+            android:layout_below="@id/imgView"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="10dp"
+            android:forceHasOverlappingRendering="true"
+            app:srcCompat="@drawable/delete_icon" />
 
 
     </RelativeLayout>

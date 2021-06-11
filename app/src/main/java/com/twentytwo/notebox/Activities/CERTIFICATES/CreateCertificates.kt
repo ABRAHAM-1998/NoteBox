@@ -1,6 +1,5 @@
 package com.twentytwo.notebox.Activities.CERTIFICATES
 
-import android.app.Activity
 import android.app.ProgressDialog
 import android.content.Intent
 import android.graphics.Bitmap
@@ -16,8 +15,6 @@ import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.theartofdev.edmodo.cropper.CropImage
 import com.theartofdev.edmodo.cropper.CropImageView
-import com.twentytwo.notebox.Activities.BdaysActivity.BirthdayActivity
-import com.twentytwo.notebox.Activities.Notes.Notes
 import com.twentytwo.notebox.Activities.SecurePages.certific
 import com.twentytwo.notebox.Firestore.FirestoreClass
 import com.twentytwo.notebox.R
@@ -47,7 +44,12 @@ class CreateCertificates : AppCompatActivity() {
             showFileChoser()
         }
         uploadBtn.setOnClickListener {
-            fileUPload()
+            if (desctextCert.text.isEmpty()) {
+                desctextCert.error = "DESCREPTION MUST"
+                return@setOnClickListener
+            } else
+                fileUPload()
+
         }
 
     }
@@ -63,7 +65,8 @@ class CreateCertificates : AppCompatActivity() {
             progressDialog.setTitle("Uploading")
             progressDialog.show()
 
-            val imageRef = storageReference!!.child("images/" + UUID.randomUUID().toString())
+            val imageRef =
+                storageReference!!.child("CERTIFICATES/" + UUID.randomUUID().toString() + ".jpeg")
             imageRef.putFile(filePath!!)
                 .addOnSuccessListener { taskSnapshot ->
                     val name = taskSnapshot.metadata!!.name
@@ -127,7 +130,7 @@ class CreateCertificates : AppCompatActivity() {
     private fun showFileChoser() {
         CropImage.activity()
             .setGuidelines(CropImageView.Guidelines.ON)
-            .setAspectRatio(5,4)
+            .setAspectRatio(5, 4)
             .setOutputCompressQuality(20)
             .setOutputCompressFormat(Bitmap.CompressFormat.JPEG)
             .start(this)

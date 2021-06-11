@@ -1,14 +1,19 @@
 package com.twentytwo.notebox.Activities.CERTIFICATES
 
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.database.FirebaseRecyclerAdapter
@@ -27,7 +32,7 @@ import kotlinx.android.synthetic.main.activity_contacts.*
 import kotlinx.android.synthetic.main.activity_notes.*
 import kotlinx.android.synthetic.main.item_image.*
 import kotlinx.android.synthetic.main.item_image.view.*
-import java.io.File
+
 
 class ImgViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
@@ -37,6 +42,7 @@ class CertificatesActivity : AppCompatActivity() {
 
     internal var storage: FirebaseStorage? = null
     internal var storageReference: StorageReference? = null
+    val storageRef = storage?.reference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,6 +51,9 @@ class CertificatesActivity : AppCompatActivity() {
             startActivity(Intent(this, CreateCertificates::class.java))
 
         }
+
+        setupPermissions()
+
 
 
         storage = FirebaseStorage.getInstance()
@@ -77,6 +86,11 @@ class CertificatesActivity : AppCompatActivity() {
                     model: certific
                 ) {
                     var name = holder.itemView.findViewById<TextView>(R.id.tvImgName)
+                    var hpplink = holder.itemView.findViewById<TextView>(R.id.hpplink)
+                    var downloadbtn = holder.itemView.findViewById<Button>(R.id.button)
+                    var deletebtn = holder.itemView.findViewById<ImageView>(R.id.deleteCert)
+
+
                     name.text = model.descreption.toString()
 
                     Picasso.with(this@CertificatesActivity)
@@ -85,8 +99,30 @@ class CertificatesActivity : AppCompatActivity() {
 
 
 
-                    name.setOnClickListener {
-                        download(position, model.imgUrl)
+                    downloadbtn.setOnClickListener {
+                        val storage = FirebaseStorage.getInstance()
+                        val storageRef = storage.reference
+                        storageRef.child("images/${model.filename}").downloadUrl.addOnSuccessListener {
+                            hpplink.text = it.toString()
+                        }
+                    }
+                    deletebtn.setOnClickListener {
+                        val storage = FirebaseStorage.getInstance()
+                        val storageRef = storage.reference
+                        val deleteRef = storageRef.child("images/${model.filename}")
+                        deleteRef.delete().addOnSuccessListener {
+
+                            snapshots.getSnapshot(position).reference.delete()
+                            notifyItemRemoved(position)
+                            Toast.makeText(this@CertificatesActivity, "DELETED", Toast.LENGTH_SHORT).show()
+
+                        }.addOnFailureListener {
+                            Toast.makeText(
+                                this@CertificatesActivity,
+                                "Failed to delete",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
                     }
                 }
 
@@ -96,14 +132,18 @@ class CertificatesActivity : AppCompatActivity() {
         rcvListImg.layoutManager = LinearLayoutManager(this)
     }
 
-    private fun download(position: Int, filename: String) {
-        var data = storageReference!!.child("images/d483208a-ad9f-4927-b422-3db9bb57f149")
+    private fun setupPermissions() {
+        val permission = ContextCompat.checkSelfPermission(
+            this,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE
+        )
 
-        val localFile = File.createTempFile("images", "jpeg")
-        data.getFile(localFile).addOnSuccessListener {
-                Toast.makeText(this, "succes fully dowloaded", Toast.LENGTH_SHORT).show()
-            }.addOnFailureListener {
-                Toast.makeText(this, "failed to downloadf fully dowloaded", Toast.LENGTH_SHORT).show()
-            }
+        if (permission != PackageManager.PERMISSION_GRANTED) {
+            Log.i("TAAAG", "Permission to record denied")
+        } else {
+            Log.i("TAAAG", "Permission to record assess")
+
+        }
     }
 }
+

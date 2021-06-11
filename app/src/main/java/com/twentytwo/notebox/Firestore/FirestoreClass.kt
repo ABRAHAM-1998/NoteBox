@@ -7,6 +7,7 @@ import com.twentytwo.notebox.Activities.CERTIFICATES.CreateCertificates
 import com.twentytwo.notebox.Activities.CONTACTS.CreateContacts
 import com.twentytwo.notebox.Activities.LOCKER.CreateLockeritems
 import com.twentytwo.notebox.Activities.Notes.Create_Notes
+import com.twentytwo.notebox.Activities.SECRETDOOR.Developer_Update
 import com.twentytwo.notebox.Activities.SecurePages.*
 import java.text.SimpleDateFormat
 
@@ -98,6 +99,17 @@ class FirestoreClass {
                 activity.Certifail()
             }
 
+    }
+
+    fun CreateDEV(activity: Developer_Update, devUpate: devUpate) {
+        mFireStore.collection("DEVELOPER").document("SECRET")
+            .set(devUpate, SetOptions.merge())
+            .addOnSuccessListener {
+                activity.DevSUCCESS()
+            }
+            .addOnFailureListener {
+                activity.DevFAILED()
+            }
     }
 }
 

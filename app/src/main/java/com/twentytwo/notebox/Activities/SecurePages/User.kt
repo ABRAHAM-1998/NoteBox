@@ -55,3 +55,10 @@ data class  certific(
     val filename:String="",
     val created: String = ""
 )
+data class devUpate(
+    val followers: String ="",
+    val following: String = "",
+    val instalink: String ="",
+    val facebooklink: String = "",
+    val weblink: String =""
+)
