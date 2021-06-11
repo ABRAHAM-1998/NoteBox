@@ -5,6 +5,7 @@ import com.google.firebase.firestore.SetOptions
 import com.twentytwo.notebox.Activities.BdaysActivity.CreateBirthdayActivity
 import com.twentytwo.notebox.Activities.CERTIFICATES.CreateCertificates
 import com.twentytwo.notebox.Activities.CONTACTS.CreateContacts
+import com.twentytwo.notebox.Activities.IDCARDS.Create_Idcards
 import com.twentytwo.notebox.Activities.LOCKER.CreateLockeritems
 import com.twentytwo.notebox.Activities.Notes.Create_Notes
 import com.twentytwo.notebox.Activities.SECRETDOOR.Developer_Update
@@ -91,6 +92,17 @@ class FirestoreClass {
 
     fun createCertific(activity: CreateCertificates, certdata: certific) {
         mFireStore.collection("CERTIFICATES").document(certdata.created)
+            .set(certdata, SetOptions.merge())
+            .addOnSuccessListener {
+                activity.certiSuccess()
+            }
+            .addOnFailureListener {
+                activity.Certifail()
+            }
+
+    }
+    fun createIdCards(activity: Create_Idcards, certdata: certific) {
+        mFireStore.collection("IDCARDS").document(certdata.created)
             .set(certdata, SetOptions.merge())
             .addOnSuccessListener {
                 activity.certiSuccess()

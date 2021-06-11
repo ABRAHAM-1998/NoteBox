@@ -1,9 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.IDCARDS.Create_Idcards">
+    tools:context=".Activities.Notes.Create_Notes">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:id="@+id/ImagePrewiew"
+        android:layout_width="match_parent"
+        android:layout_height="300dp" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:layout_below="@id/ImagePrewiew"
+        android:text="SELECT IMAGE"
+        android:id="@+id/chooseBtnIDCARD"/>
+
+
+    <EditText
+        android:id="@+id/desIDCARD"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="43dp"
+        android:layout_below="@id/chooseBtnIDCARD"
+        android:ems="10"
+        android:layout_margin="20dp"
+        android:layout_centerHorizontal="true"
+        android:hint="Enter Descreption"
+        android:inputType="textPersonName"
+        android:text="" />
+    <Button
+        android:id="@+id/uploadBtnIDcards"
+        android:layout_width="wrap_content"
+        android:hint="Enter Descreption"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/desIDCARD"
+        android:layout_centerHorizontal="true"
+        android:text="UPLOAD"/>
+</RelativeLayout>

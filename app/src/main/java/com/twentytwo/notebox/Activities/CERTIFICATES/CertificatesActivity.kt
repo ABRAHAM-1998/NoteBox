@@ -102,14 +102,14 @@ class CertificatesActivity : AppCompatActivity() {
                     downloadbtn.setOnClickListener {
                         val storage = FirebaseStorage.getInstance()
                         val storageRef = storage.reference
-                        storageRef.child("images/${model.filename}").downloadUrl.addOnSuccessListener {
+                        storageRef.child("CERTIFICATES/${model.filename}").downloadUrl.addOnSuccessListener {
                             hpplink.text = it.toString()
                         }
                     }
                     deletebtn.setOnClickListener {
                         val storage = FirebaseStorage.getInstance()
                         val storageRef = storage.reference
-                        val deleteRef = storageRef.child("images/${model.filename}")
+                        val deleteRef = storageRef.child("CERTIFICATES/${model.filename}")
                         deleteRef.delete().addOnSuccessListener {
 
                             snapshots.getSnapshot(position).reference.delete()

@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.twentytwo.notebox.Activities.BdaysActivity.BirthdayActivity
 import com.twentytwo.notebox.Activities.CERTIFICATES.CertificatesActivity
 import com.twentytwo.notebox.Activities.CONTACTS.Contacts
+import com.twentytwo.notebox.Activities.IDCARDS.Idcards_Home
 import com.twentytwo.notebox.Activities.LOCKER.LockerLoginPage
 import com.twentytwo.notebox.Activities.Notes.Notes
 import com.twentytwo.notebox.R
@@ -75,6 +76,11 @@ class Main_Adapter_cycle(
         }
         if (position == 4) {
             val intent = Intent(contex, CertificatesActivity::class.java)
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            contex.startActivity(intent)
+        }
+        if (position == 5) {
+            val intent = Intent(contex, Idcards_Home::class.java)
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             contex.startActivity(intent)
         }
