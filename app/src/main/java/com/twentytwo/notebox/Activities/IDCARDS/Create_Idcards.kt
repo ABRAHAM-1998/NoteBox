@@ -132,7 +132,6 @@ class Create_Idcards : AppCompatActivity() {
         CropImage.activity()
             .setGuidelines(CropImageView.Guidelines.ON)
             .setAspectRatio(5, 4)
-            .setOutputCompressQuality(20)
             .setOutputCompressFormat(Bitmap.CompressFormat.JPEG)
             .start(this)
 
