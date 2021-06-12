@@ -1,10 +1,7 @@
 package com.twentytwo.notebox.Activities.SecurePages
 
-import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.Source
@@ -13,6 +10,7 @@ import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 import com.twentytwo.notebox.R
 import kotlinx.android.synthetic.main.activity_profile.*
+
 data class UserList(
     val id: String = "",
     val name: String = "",
@@ -26,6 +24,7 @@ data class UserList(
     val lkey: String = ""
 
 )
+
 class ProfileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,7 +45,7 @@ class ProfileActivity : AppCompatActivity() {
                     val users = document.toObject<UserList>()
 
 
-                    if (users?.lkeystatus == true){
+                    if (users?.lkeystatus == true) {
                         lockerTxt.text = "ACTIVE"
                         lockerTxt.setTextColor(Color.GREEN)
                     }

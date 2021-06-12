@@ -36,7 +36,7 @@ class SignupActivity : AppCompatActivity() {
         }
 
         radioGroup?.setOnCheckedChangeListener { group, checkedId ->
-             gendertext = if (R.id.male_btn == checkedId) "male" else "female"
+            gendertext = if (R.id.male_btn == checkedId) "male" else "female"
             Toast.makeText(applicationContext, gendertext, Toast.LENGTH_SHORT).show()
         }
         //=====================FULL-SCREEN===========================
@@ -92,9 +92,9 @@ class SignupActivity : AppCompatActivity() {
                 inputt_pass1.requestFocus()
                 return@setOnClickListener
             }
-            if(gendertext.isEmpty()){
-                female_btn.error ="select"
-                male_btn.error ="select"
+            if (gendertext.isEmpty()) {
+                female_btn.error = "select"
+                male_btn.error = "select"
                 radioGroup.requestFocus()
                 return@setOnClickListener
             }
@@ -158,12 +158,12 @@ class SignupActivity : AppCompatActivity() {
         FirebaseAuth.getInstance().signOut()
         startActivity(Intent(this, LoginActivity::class.java))
         finish()
-        Toast.makeText(this, "UserRegistration Success", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "USER REGISTRATION SUCCESS", Toast.LENGTH_SHORT).show()
     }
 
     fun userRegistrationFailure() {
         sign_llogTxt.text = "USER REGISTRATION FAILED!"
-        Toast.makeText(this, "UserRegistration Failded to user", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "USER REGISTRATION FAILED", Toast.LENGTH_SHORT).show()
     }
 }
 

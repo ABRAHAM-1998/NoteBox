@@ -55,7 +55,6 @@ class Create_Idcards : AppCompatActivity() {
     }
 
     private fun fileUPload() {
-        Toast.makeText(this, "fgjkasfgsdjfglj", Toast.LENGTH_SHORT).show()
         val sdf = SimpleDateFormat("dd/M/yyy hh:mm:ss")
         val currentday = sdf.calendar.time.toString()
 
@@ -93,11 +92,11 @@ class Create_Idcards : AppCompatActivity() {
 
 
                     progressDialog.dismiss()
-                    Toast.makeText(applicationContext, "File Uplaioded", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(applicationContext, "FILE UPLOADED SUCCESFULLY", Toast.LENGTH_SHORT).show()
                 }
                 .addOnFailureListener {
                     progressDialog.dismiss()
-                    Toast.makeText(applicationContext, "Failed to upload", Toast.LENGTH_SHORT)
+                    Toast.makeText(applicationContext, "FAILED TO UPLOAD", Toast.LENGTH_SHORT)
                         .show()
                 }
                 .addOnProgressListener { tasKSnapshot ->
@@ -145,14 +144,14 @@ class Create_Idcards : AppCompatActivity() {
 
     fun certiSuccess() {
         val intent = Intent(this, Idcards_Home::class.java)
-        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
         startActivity(intent)
 
-        Toast.makeText(this, "Bdsay success Success", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "SUCCESFULLY CRAEATED", Toast.LENGTH_SHORT).show()
     }
 
     fun Certifail() {
-        Toast.makeText(this, "bday fsaild Failded to user", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "FAILED TO CREATE", Toast.LENGTH_SHORT).show()
 
     }
 }

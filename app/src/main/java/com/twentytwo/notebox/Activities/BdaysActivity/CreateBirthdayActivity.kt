@@ -1,12 +1,15 @@
 package com.twentytwo.notebox.Activities.BdaysActivity
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.preference.PreferenceManager
 import com.google.firebase.auth.FirebaseAuth
 import com.twentytwo.notebox.Activities.SecurePages.bdaydata
 import com.twentytwo.notebox.Firestore.FirestoreClass
@@ -22,6 +25,11 @@ class CreateBirthdayActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_birthday)
         @Suppress("DEPRECATION")
+//        var data: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
+//
+//        var bdtats = data.getBoolean("sync",true)
+//        Toast.makeText(this, "$bdtats", Toast.LENGTH_SHORT).show()
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             window.insetsController?.hide(WindowInsets.Type.statusBars())
         } else {
@@ -32,13 +40,16 @@ class CreateBirthdayActivity : AppCompatActivity() {
         }
 
         if (intent.getStringExtra("name") != null) {
-            Toast.makeText(this, "${intent.getStringExtra("name")}", Toast.LENGTH_SHORT).show()
             cb_name.setText(intent.getStringExtra("name"))
             cb_remiderSwitch.isChecked = intent.getBooleanExtra("notyfy", false)
             cb_create_button.text = "Update"
             cb_1.text = "UPDATE BIRTHDAY EVENT"
 
             cb_create_button.setOnClickListener {
+                if (cb_name.text.isEmpty()){
+                    cb_name.error="NAME MUST"
+                    return@setOnClickListener
+                }
                 val day = cb_calenderView.dayOfMonth.toString().trim()
                 val month = (cb_calenderView.month + 1).toString().trim()
                 val year = cb_calenderView.year.toString().trim()
@@ -62,6 +73,10 @@ class CreateBirthdayActivity : AppCompatActivity() {
 
         } else {
             cb_create_button.setOnClickListener {
+                if (cb_name.text.isEmpty()){
+                    cb_name.error="NAME MUST"
+                    return@setOnClickListener
+                }
                 val day = cb_calenderView.dayOfMonth.toString().trim()
                 val month = (cb_calenderView.month + 1).toString().trim()
                 val year = cb_calenderView.year.toString().trim()
@@ -88,7 +103,7 @@ class CreateBirthdayActivity : AppCompatActivity() {
         Toast.makeText(this, "Bdsay success Success", Toast.LENGTH_SHORT).show()
 
         val intent = Intent(this, BirthdayActivity::class.java)
-        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
         startActivity(intent)
     }
 

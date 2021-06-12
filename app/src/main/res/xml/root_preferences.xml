@@ -1,0 +1,30 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+    <PreferenceCategory app:title="@string/lockHead">
+
+        <SwitchPreferenceCompat
+            app:key="sync"
+            app:summary="@string/attchsum"
+            app:title="@string/numlock" />
+
+        <SwitchPreferenceCompat
+            app:dependency="sync"
+            app:key="attachment"
+            app:summaryOff="@string/attachment_summary_off"
+            app:summaryOn="@string/attachment_summary_on"
+            app:title="@string/attachment_title" />
+
+    </PreferenceCategory>
+    <PreferenceCategory app:title="VERSION">
+        <ListPreference
+            app:key="version"
+            app:summary="@string/versiontext"
+            app:title="@string/VersionTitle" />
+    </PreferenceCategory>
+    <PreferenceCategory app:title="APP UPDATE">
+        <ListPreference
+            app:key="updatelink"
+            app:summary="@string/updateLink"
+            app:title="@string/updateText" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

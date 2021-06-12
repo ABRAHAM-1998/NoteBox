@@ -89,9 +89,16 @@ class CertificatesActivity : AppCompatActivity() {
                     var hpplink = holder.itemView.findViewById<TextView>(R.id.hpplink)
                     var downloadbtn = holder.itemView.findViewById<Button>(R.id.button)
                     var deletebtn = holder.itemView.findViewById<ImageView>(R.id.deleteCert)
+                    var date = holder.itemView.findViewById<TextView>(R.id.DateCreated)
+                    var filename = holder.itemView.findViewById<TextView>(R.id.fileName)
+
+
 
 
                     name.text = model.descreption.toString()
+                    date.text = model.created.toString()
+                    filename.text = model.filename.toString()
+
 
                     Picasso.with(this@CertificatesActivity)
                         .load(model.imgUrl.toString())
@@ -114,7 +121,8 @@ class CertificatesActivity : AppCompatActivity() {
 
                             snapshots.getSnapshot(position).reference.delete()
                             notifyItemRemoved(position)
-                            Toast.makeText(this@CertificatesActivity, "DELETED", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@CertificatesActivity, "DELETED", Toast.LENGTH_SHORT)
+                                .show()
 
                         }.addOnFailureListener {
                             Toast.makeText(

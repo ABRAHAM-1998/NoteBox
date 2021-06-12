@@ -3,10 +3,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bday_grad"
     tools:context=".Activities.Notes.Create_Notes">
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="30dp"
+        android:textStyle="bold"
+        android:textSize="26dp"
+        android:layout_alignParentTop="true"
+        android:text="CREATE CERTIFICATES" />
 
     <ImageView
         android:id="@+id/ImagePrewiew"
+        android:layout_below="@id/textView6"
+        android:src="@drawable/certificate"
         android:layout_width="match_parent"
         android:layout_height="300dp" />
     <Button

@@ -92,11 +92,11 @@ class CreateCertificates : AppCompatActivity() {
 
 
                     progressDialog.dismiss()
-                    Toast.makeText(applicationContext, "File Uplaioded", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(applicationContext, "FilE UPLOADED SUCCESFULLY", Toast.LENGTH_SHORT).show()
                 }
                 .addOnFailureListener {
                     progressDialog.dismiss()
-                    Toast.makeText(applicationContext, "Failed to upload", Toast.LENGTH_SHORT)
+                    Toast.makeText(applicationContext, "FAILED TO UOLOAD", Toast.LENGTH_SHORT)
                         .show()
                 }
                 .addOnProgressListener { tasKSnapshot ->
@@ -143,14 +143,14 @@ class CreateCertificates : AppCompatActivity() {
 
     fun certiSuccess() {
         val intent = Intent(this, CertificatesActivity::class.java)
-        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
         startActivity(intent)
 
-        Toast.makeText(this, "Bdsay success Success", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "SUCCESFULLLY CREATED", Toast.LENGTH_SHORT).show()
     }
 
     fun Certifail() {
-        Toast.makeText(this, "bday fsaild Failded to user", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "FAILED TO CREATE", Toast.LENGTH_SHORT).show()
 
     }
 }

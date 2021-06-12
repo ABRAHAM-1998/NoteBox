@@ -23,6 +23,7 @@
         tools:layout_editor_absoluteX="137dp"
         tools:layout_editor_absoluteY="453dp"
         android:contentDescription="TODO"
+        android:forceDarkAllowed="false"
         android:focusable="true" />
 
 
@@ -31,6 +32,8 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcvListImg"
         android:layout_width="match_parent"
+        android:background="@drawable/bday_grad"
+        android:forceDarkAllowed="false"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />

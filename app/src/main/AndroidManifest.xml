@@ -17,7 +17,10 @@
         android:theme="@style/Theme.NoteBox"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".Activities.IDCARDS.Create_Idcards"></activity>
+        <activity
+            android:name=".Activities.SecurePages.SettingsActivity"
+            android:label="@string/title_activity_settings"></activity>
+        <activity android:name=".Activities.IDCARDS.Create_Idcards" />
         <activity android:name=".Activities.IDCARDS.Idcards_Home" />
         <activity android:name=".Activities.SECRETDOOR.Users_List_Dev" />
         <activity android:name=".Activities.SECRETDOOR.Developer_Update" />

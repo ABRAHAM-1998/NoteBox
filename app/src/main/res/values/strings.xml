@@ -10,4 +10,25 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="text_link_ehs"> <a href=""></a></string>
+    <string name="title_activity_settings">SettingsActivity</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="lockHead">Set Lock</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="numlock">Enable Passsword </string>
+    <string name="attchsum">Enable passsword for \n CERTIFICATES &amp; IDCARDS</string>
+    <string name="attachment_title">FingerPrint Authentication</string>
+    <string name="attachment_summary_on"> FingerPrint authentication for CERTIFICATES &amp; IDCARDS
+    </string>
+    <string name="attachment_summary_off">No FingerPrints turned off </string>
+    <string name="VersionTitle">APP VERSION</string>
+    <string name="versiontext">v 1.0</string>
+    <string name="updateLink"><a href="">http://www.ytwentytweo.com</a></string>
+    <string name="updateText">LATEST VERSION DOWNLOAD</string>
 </resources>

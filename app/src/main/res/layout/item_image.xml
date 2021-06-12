@@ -6,7 +6,6 @@
     android:layout_margin="8dp"
     android:alpha="0.7"
     android:id="@+id/itemnotess"
-    android:forceDarkAllowed="false"
     app:cardCornerRadius="8dp"
     app:cardElevation="3dp">
 
@@ -14,24 +13,49 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bday_grad"
-        android:forceDarkAllowed="false">
+        android:forceDarkAllowed="true"
+        android:background="@drawable/dark_grad_file">
 
         <TextView
             android:id="@+id/tvImgName"
             android:layout_centerHorizontal="true"
             android:textStyle="bold"
-            android:textSize="23dp"
+            android:textSize="18dp"
             android:textAllCaps="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_margin="5dp"
             android:text="Image Name"
-            android:forceDarkAllowed="false"
+            android:textColor="@color/white"/>
+        <TextView
+            android:id="@+id/fileName"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold"
+            android:textSize="12dp"
+            android:textAllCaps="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Image Name"
+            android:layout_below="@id/tvImgName"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:id="@+id/DateCreated"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold"
+            android:textSize="12dp"
+            android:textAllCaps="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Image Name"
+            android:layout_below="@id/fileName"
             android:textColor="@color/white"/>
         <ImageView
             android:id="@+id/imgView"
+            android:layout_below="@id/DateCreated"
             android:layout_width="match_parent"
             android:layout_height="350dp" />
 

@@ -19,6 +19,17 @@ class CreateContacts : AppCompatActivity() {
         setContentView(R.layout.activity_create_contacts)
 
         btn_creatContacts.setOnClickListener {
+            if (et_name.text.isEmpty()){
+                et_name.error = "ENTER NAME"
+                return@setOnClickListener
+            }
+            if(et_mobile.text.isEmpty()){
+                et_mobile.error = "ENTER MOBILE"
+                return@setOnClickListener
+            }else if (et_mobile.text.length != 10){
+                et_mobile.error = "ENTER A VALID MOBILE"
+                return@setOnClickListener
+            }
 
             val sdf = SimpleDateFormat("dd/M/yyy hh:mm:ss")
             val currentday = sdf.calendar.time.toString()
@@ -42,13 +53,13 @@ class CreateContacts : AppCompatActivity() {
 
     fun CC_ContractsSucurd() {
         val intent = Intent(this, Contacts::class.java)
-        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
         startActivity(intent)
 
-        Toast.makeText(this, "Bdsay success Success", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "SUCCESFULLY CREATED", Toast.LENGTH_SHORT).show()
     }
 
     fun CC_Failed() {
-        Toast.makeText(this, "bday fsaild Failded to user", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "FAILED TO CREATE", Toast.LENGTH_SHORT).show()
     }
 }

@@ -108,7 +108,7 @@ class LoginActivity : AppCompatActivity() {
                 docRef
                     .update("lastlogin", "$currentday")
                     .addOnSuccessListener {
-                        Toast.makeText(this, "jgfhkjhgdjk", Toast.LENGTH_SHORT).show()
+                        Log.d("lastlogin", "lastloginsuccess")
                     }
 
                     .addOnFailureListener { e ->

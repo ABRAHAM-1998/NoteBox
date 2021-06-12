@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bday_grad"
+    android:background="@drawable/dark_grad_file"
+    android:forceDarkAllowed="false"
     tools:context=".Activities.Notes.Notes">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
