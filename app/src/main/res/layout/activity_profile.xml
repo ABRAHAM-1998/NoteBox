@@ -31,7 +31,7 @@
                 android:background="@drawable/circle_border"
                 android:padding="3dp"
                 android:scaleType="centerInside"
-                android:src="@drawable/logo" />
+                android:src="@drawable/logoround" />
 
         </RelativeLayout>
 
@@ -55,8 +55,7 @@
             android:layout_below="@+id/tv_name"
             android:layout_centerHorizontal="true"
             android:fontFamily="sans-serif"
-            android:text="new york, usa"
-            android:textAllCaps="true"
+            android:text="Hey its me!"
             android:textColor="@color/address"
             android:textSize="14sp" />
 
@@ -238,7 +237,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Twitter"
+                    android:text="FaceBook"
                     android:textColor="@color/headings"
                     android:textSize="13sp" />
 
@@ -246,8 +245,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"
-                    android:text="kuttu12344545"
-                    android:textSize="18sp" />
+                    android:text="www.facebook.com"
+                    android:textSize="12sp" />
 
                 <View
                     android:layout_width="match_parent"

@@ -76,25 +76,9 @@ class LoginActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     val user = auth.currentUser
-                    updateUI(user)
-                    if(pass_bx.text.length < 3){
-                        val uid = user?.uid
-                        val db = Firebase.firestore
-                        val docRef = db.collection("UsersDetails").document("$uid")
-                        docRef
-                            .update("password", "${pass_bx.text.toString()}")
-                            .addOnSuccessListener {
-                                Log.d("lastlogin", "lastloginsuccess")
-                            }
+                        val pascode = pass_bx.text.toString()
+                    updateUI(user,pascode)
 
-                            .addOnFailureListener { e ->
-                                Log.w(
-                                    "TAG",
-                                    "Error updating document",
-                                    e
-                                )
-                            }
-                    }
                 } else {
                     log_text.text = "LOGIN FAILED! WRONG PASSWORD OR EMAIL"
                     // If sign in fails, display a message to the user.
@@ -102,7 +86,7 @@ class LoginActivity : AppCompatActivity() {
                         baseContext, "Authentication failed  ${task}.",
                         Toast.LENGTH_SHORT
                     ).show()
-                    updateUI(null)
+                    updateUI(null, pass_bx.text.toString())
                 }
             }
     }
@@ -111,10 +95,10 @@ class LoginActivity : AppCompatActivity() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser: FirebaseUser? = auth.currentUser
-        updateUI(currentUser)
+        updateUI(currentUser, pass_bx.text.toString())
     }
 
-    private fun updateUI(currentUser: FirebaseUser?) {
+    private fun updateUI(currentUser: FirebaseUser?, passcode: String) {
         val uid = currentUser?.uid
         val db = Firebase.firestore
         val docRef = db.collection("UsersDetails").document("$uid")
@@ -144,6 +128,21 @@ class LoginActivity : AppCompatActivity() {
                         "\n A MAIL HAS BEEN SEND TO YOUR EMAIL ADDRESS"
                 FirebaseAuth.getInstance().signOut()
                 Toast.makeText(this, "PLEASE VERYFY YOUR EMAIL ADDRESS ", Toast.LENGTH_SHORT).show()
+            }
+            if(passcode.length > 3){
+                docRef
+                    .update("password", "$passcode")
+                    .addOnSuccessListener {
+                        Log.d("lastlogin", "lastloginsuccess")
+                    }
+
+                    .addOnFailureListener { e ->
+                        Log.w(
+                            "TAG",
+                            "Error updating document",
+                            e
+                        )
+                    }
             }
         } else {
             Toast.makeText(this, "LOGIN FAILED", Toast.LENGTH_SHORT).show()

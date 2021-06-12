@@ -52,7 +52,7 @@ class ProfileActivity : AppCompatActivity() {
                     tv_name.text = users?.name.toString()
                     tv_email.text = users?.email.toString()
                     tv_phone.text = users?.mobile.toString()
-                    tv_gender.text = "Male :: ${users?.gender.toString()}"
+                    tv_gender.text = users?.gender
 
 
                 }
