@@ -29,7 +29,7 @@
     <string name="attachment_summary_off">No FingerPrints turned off </string>
     <string name="VersionTitle">APP VERSION</string>
     <string name="versiontext">v 2.2.4</string>
-    <string name="updateLink"><a href="https://sevenzeronine-in.web.app/">https://sevenzeronine-in.web.app/</a></string>
+    <string name="updateLink"><a href="https://firebasestorage.googleapis.com/v0/b/notebox-e707e.appspot.com/o/Note~Box.apk?alt=media&amp;token=d475ef40-90ca-4dd1-a24b-a7df6c7b7841">https://firebasestorage.googleapis.com/v0/b/notebox-e707e.appspot.com/o/Note~Box.apk?alt=media&amp;token=d475ef40-90ca-4dd1-a24b-a7df6c7b7841</a></string>
     <string name="updateText">LATEST VERSION DOWNLOAD</string>
 
 
