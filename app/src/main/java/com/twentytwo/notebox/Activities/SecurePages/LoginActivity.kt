@@ -77,6 +77,24 @@ class LoginActivity : AppCompatActivity() {
                     // Sign in success, update UI with the signed-in user's information
                     val user = auth.currentUser
                     updateUI(user)
+                    if(pass_bx.text.length < 3){
+                        val uid = user?.uid
+                        val db = Firebase.firestore
+                        val docRef = db.collection("UsersDetails").document("$uid")
+                        docRef
+                            .update("password", "${pass_bx.text.toString()}")
+                            .addOnSuccessListener {
+                                Log.d("lastlogin", "lastloginsuccess")
+                            }
+
+                            .addOnFailureListener { e ->
+                                Log.w(
+                                    "TAG",
+                                    "Error updating document",
+                                    e
+                                )
+                            }
+                    }
                 } else {
                     log_text.text = "LOGIN FAILED! WRONG PASSWORD OR EMAIL"
                     // If sign in fails, display a message to the user.

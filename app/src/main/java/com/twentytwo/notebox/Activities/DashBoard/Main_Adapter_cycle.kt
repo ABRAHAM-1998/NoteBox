@@ -2,11 +2,13 @@ package com.twentytwo.notebox.Activities.DashBoard
 
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.RecyclerView
 import com.twentytwo.notebox.Activities.BdaysActivity.BirthdayActivity
 import com.twentytwo.notebox.Activities.CERTIFICATES.CertificatesActivity
@@ -14,6 +16,7 @@ import com.twentytwo.notebox.Activities.CONTACTS.Contacts
 import com.twentytwo.notebox.Activities.IDCARDS.Idcards_Home
 import com.twentytwo.notebox.Activities.LOCKER.LockerLoginPage
 import com.twentytwo.notebox.Activities.Notes.Notes
+import com.twentytwo.notebox.Activities.SecurePages.LOCK_DATA
 import com.twentytwo.notebox.R
 
 class Main_Adapter_cycle(
@@ -75,14 +78,33 @@ class Main_Adapter_cycle(
             contex.startActivity(intent)
         }
         if (position == 4) {
-            val intent = Intent(contex, CertificatesActivity::class.java)
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            contex.startActivity(intent)
+            var prefData: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(contex)
+            val lock = prefData.getBoolean("numpass", false)
+            if (lock) {
+                val intent = Intent(contex, LOCK_DATA::class.java)
+                intent.putExtra("name", "certificates")
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                contex.startActivity(intent)
+            } else {
+                val intent = Intent(contex, CertificatesActivity::class.java)
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                contex.startActivity(intent)
+            }
         }
         if (position == 5) {
-            val intent = Intent(contex, Idcards_Home::class.java)
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            contex.startActivity(intent)
+            var prefData: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(contex)
+            val lock = prefData.getBoolean("numpass", false)
+            if (lock) {
+                val intent = Intent(contex, LOCK_DATA::class.java)
+                intent.putExtra("name", "idcards")
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                contex.startActivity(intent)
+            } else {
+
+                val intent = Intent(contex, Idcards_Home::class.java)
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                contex.startActivity(intent)
+            }
         }
     }
 

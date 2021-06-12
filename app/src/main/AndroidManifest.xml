@@ -17,16 +17,28 @@
         android:theme="@style/Theme.NoteBox"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
+        <activity android:name=".Activities.SecurePages.LOCK_DATA"></activity>
         <activity
             android:name=".Activities.SecurePages.SettingsActivity"
-            android:label="@string/title_activity_settings"></activity>
-        <activity android:name=".Activities.IDCARDS.Create_Idcards" />
-        <activity android:name=".Activities.IDCARDS.Idcards_Home" />
-        <activity android:name=".Activities.SECRETDOOR.Users_List_Dev" />
-        <activity android:name=".Activities.SECRETDOOR.Developer_Update" />
-        <activity android:name=".Activities.SECRETDOOR.LOGINPAGE_SECRET" />
-        <activity android:name=".Activities.SECRETDOOR.DeveloperActivity" />
-        <activity android:name=".Activities.SecurePages.forgrtPassword" />
+            android:label="@string/title_activity_settings" />
+        <activity
+            android:name=".Activities.IDCARDS.Create_Idcards"
+            android:label="CREATE IDCARDS"
+            android:screenOrientation="portrait" />
+        <activity android:name=".Activities.IDCARDS.Idcards_Home"
+            android:theme="@style/Theme.MaterialComponents.NoActionBar"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".Activities.SECRETDOOR.Users_List_Dev"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.SECRETDOOR.Developer_Update"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.SECRETDOOR.LOGINPAGE_SECRET"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.SECRETDOOR.DeveloperActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.SecurePages.forgrtPassword"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Activities.Notes.NoteViewAcxctivity"
             android:screenOrientation="portrait"

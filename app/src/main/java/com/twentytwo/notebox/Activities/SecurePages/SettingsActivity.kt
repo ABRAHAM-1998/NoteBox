@@ -4,9 +4,9 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceManager
 import com.twentytwo.notebox.R
@@ -22,15 +22,15 @@ class SettingsActivity : AppCompatActivity() {
                 .commit()
         }
         var prefData: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
+        val datas = prefData.getBoolean("fpauth", false)
+//        Toast.makeText(this, "$datas", Toast.LENGTH_SHORT).show()
 
-        var data = prefData.getBoolean("sync", true)
-        
-        fun GetAppVersion(context:Context):String{
+        fun GetAppVersion(context: Context): String {
             var version = ""
             try {
-                val pInfo = context.packageManager.getPackageInfo(context.packageName,0)
+                val pInfo = context.packageManager.getPackageInfo(context.packageName, 0)
                 version = pInfo.versionName
-            }catch (e:PackageManager.NameNotFoundException){
+            } catch (e: PackageManager.NameNotFoundException) {
                 e.printStackTrace()
             }
             return version

@@ -28,7 +28,20 @@
     </string>
     <string name="attachment_summary_off">No FingerPrints turned off </string>
     <string name="VersionTitle">APP VERSION</string>
-    <string name="versiontext">v 1.0</string>
-    <string name="updateLink"><a href="">http://www.ytwentytweo.com</a></string>
+    <string name="versiontext">v 2.2.4</string>
+    <string name="updateLink"><a href="https://sevenzeronine-in.web.app/">https://sevenzeronine-in.web.app/</a></string>
     <string name="updateText">LATEST VERSION DOWNLOAD</string>
+
+
+
+    <string name="title_activity_enable_biometric_login">Enable BiometricLogin</string>
+    <string name="enable_biometric_login">Enable Biometric Login</string>
+    <string name="desc_biometrics_authorization">Enter your login ID and password to confirm activation of Biometric Login.</string>
+    <string name="cancel">Cancel</string>
+    <string name="btn_authorize">Authorize</string>
+    <string name="prompt_info_title">Sample App Authentication</string>
+    <string name="prompt_info_subtitle">Please login to get access</string>
+    <string name="prompt_info_description">Sample App is using Android biometric authentication</string>
+    <string name="prompt_info_use_app_password">Use app password</string>
+    <string name="secret_key_name">biometric_sample_encryption_key</string>
 </resources>

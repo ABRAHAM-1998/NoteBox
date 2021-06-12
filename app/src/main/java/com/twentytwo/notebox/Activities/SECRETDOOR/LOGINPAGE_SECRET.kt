@@ -22,7 +22,7 @@ class LOGINPAGE_SECRET : AppCompatActivity() {
         SECBTN.setOnClickListener {
             val Code = secretKeyBOX.text.toString()
 
-            if (Code.isEmpty()) {
+            if (Code == decodedString) {
                 startActivity(Intent(this, Developer_Update::class.java))
             } else if (Code.isEmpty()) {
                 secretKeyBOX.error = "FUCK OFF"
