@@ -3,6 +3,7 @@ package com.twentytwo.notebox.Activities.DashBoard
 import android.app.AlertDialog
 import android.content.DialogInterface
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -10,11 +11,13 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.twentytwo.notebox.Activities.SECRETDOOR.DeveloperActivity
+import com.twentytwo.notebox.Activities.SecurePages.LOCK_DATA
 import com.twentytwo.notebox.Activities.SecurePages.LoginActivity
 import com.twentytwo.notebox.Activities.SecurePages.ProfileActivity
 import com.twentytwo.notebox.Activities.SecurePages.SettingsActivity
@@ -93,7 +96,16 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, ProfileActivity::class.java))
             return true
         } else if (id == R.id.note_settings) {
-            startActivity(Intent(this, SettingsActivity::class.java))
+            var prefData: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
+            val lock = prefData.getBoolean("numpass", false)
+            if (lock) {
+                val intent = Intent(this, LOCK_DATA::class.java)
+                intent.putExtra("name", "settings")
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                this.startActivity(intent)
+            } else {
+                startActivity(Intent(this, SettingsActivity::class.java))
+            }
             return true
         } else if (id == R.id.developerid) {
             startActivity(Intent(this, DeveloperActivity::class.java))

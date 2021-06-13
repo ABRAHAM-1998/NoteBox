@@ -1,57 +1,67 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<?xml version = "1.0" encoding = "utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
     android:background="@drawable/bday_grad"
-    tools:context=".Activities.Notes.Create_Notes">
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="30dp"
-        android:textStyle="bold"
-        android:textSize="26dp"
-        android:layout_alignParentTop="true"
-        android:text="CREATE CERTIFICATES" />
+    android:layout_height="match_parent"
+    android:layout_alignParentStart="true"
+    android:layout_alignParentTop="true">
 
-    <ImageView
-        android:id="@+id/ImagePrewiew"
-        android:layout_below="@id/textView6"
-        android:src="@drawable/certificate"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="300dp" />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:layout_below="@id/ImagePrewiew"
-        android:text="SELECT IMAGE"
-        android:id="@+id/chooseBtn"/>
+        android:layout_height="match_parent"
+        tools:context=".Activities.Notes.Create_Notes">
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="30dp"
+            android:text="CREATE CERTIFICATES"
+            android:textSize="26dp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/ImagePrewiew"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_below="@id/textView6"
+            android:src="@drawable/certificate" />
+
+        <Button
+            android:id="@+id/chooseBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ImagePrewiew"
+            android:layout_margin="20dp"
+            android:text="SELECT IMAGE" />
 
 
-    <EditText
-        android:id="@+id/desctextCert"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="43dp"
-        android:layout_below="@id/chooseBtn"
-        android:ems="10"
-        android:layout_margin="20dp"
-        android:layout_centerHorizontal="true"
-        android:textColor="@color/black"
-        android:textColorHint="@color/purple_500"
-        android:backgroundTint="@color/purple_700"
-        android:hint="Enter Descreption"
-        android:inputType="textPersonName"
-        android:text="" />
-    <Button
-        android:id="@+id/uploadBtn"
-        android:layout_width="wrap_content"
-        android:hint="Enter Descreption"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/desctextCert"
-        android:layout_centerHorizontal="true"
-        android:text="UPLOAD"/>
-</RelativeLayout>
+        <EditText
+            android:id="@+id/desctextCert"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/chooseBtn"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="20dp"
+            android:layout_marginTop="43dp"
+            android:backgroundTint="@color/purple_700"
+            android:ems="10"
+            android:hint="Enter Descreption"
+            android:inputType="textPersonName"
+            android:text=""
+            android:textColor="@color/black"
+            android:textColorHint="@color/purple_500" />
+
+        <Button
+            android:id="@+id/uploadBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/desctextCert"
+            android:layout_centerHorizontal="true"
+            android:hint="Enter Descreption"
+            android:text="UPLOAD" />
+    </RelativeLayout>
+</ScrollView>

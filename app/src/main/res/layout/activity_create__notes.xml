@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,45 +8,53 @@
     <TextView
         android:id="@+id/n_chead"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_margin="20dp"
-        android:textSize="28dp"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        android:layout_height="wrap_content"
         android:text="CREATE NOTES"
+        android:textColor="#FFFFFF"
+        android:textSize="28dp"
+        android:textStyle="bold"
         tools:layout_editor_absoluteX="126dp"
         tools:layout_editor_absoluteY="48dp" />
+
 
     <EditText
         android:id="@+id/nc__et_head"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/n_chead"
+        android:layout_margin="30dp"
         android:ems="10"
         android:hint="Enter Title of notes"
         android:inputType="textPersonName"
-        android:layout_below="@id/n_chead"
-        android:layout_margin="30dp"
         android:text="" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_below="@id/nc__et_head"
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="300dp">
+        android:layout_below="@id/nc__et_head"
+        android:layout_height="match_parent">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/cn__notesContent"
-            android:hint="Enter notes" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="300dp"
+            android:layout_below="@id/nc__et_head">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/cn__notesContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter notes" />
+        </com.google.android.material.textfield.TextInputLayout>
+    </ScrollView>
+
     <Button
         android:id="@+id/note_create_button"
-        android:layout_marginBottom="20dp"
-        android:textAllCaps="true"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Create" />
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:text="Create"
+        android:textAllCaps="true" />
 </RelativeLayout>

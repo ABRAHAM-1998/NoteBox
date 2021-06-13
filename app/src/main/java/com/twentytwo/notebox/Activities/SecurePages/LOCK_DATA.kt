@@ -65,6 +65,10 @@ class LOCK_DATA : AppCompatActivity() {
                         val intent = Intent(this@LOCK_DATA, Idcards_Home::class.java)
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         this@LOCK_DATA.startActivity(intent)
+                    } else if (intent.getStringExtra("name") == "settings") {
+                        val intent = Intent(this@LOCK_DATA, SettingsActivity::class.java)
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        this@LOCK_DATA.startActivity(intent)
                     }
                 }
 
@@ -97,7 +101,7 @@ class LOCK_DATA : AppCompatActivity() {
                 biometricPrompt.authenticate(promptInfo)
 
             }
-        }else{
+        } else {
             fingerp.visibility = View.INVISIBLE
         }
 
@@ -165,6 +169,10 @@ class LOCK_DATA : AppCompatActivity() {
                 val intent = Intent(this, Idcards_Home::class.java)
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 this.startActivity(intent)
+            }else if (intent.getStringExtra("name") == "settings") {
+                val intent = Intent(this@LOCK_DATA, SettingsActivity::class.java)
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                this@LOCK_DATA.startActivity(intent)
             }
         }
     }

@@ -141,13 +141,8 @@ class SignupActivity : AppCompatActivity() {
                                 }
                             }
                     } else {
-                        sign_llogTxt.text = "Sign Up failed. Try again after some time." +
-                                "\n EMAIL ALREADY IN USE! OR UNABLE TO SEMD EMAIL ADDRESS"
-                        Toast.makeText(
-                            baseContext, "Sign Up failed. Try again after some time." +
-                                    "\n EMAIL ALREADY IN USE! OR UNABLE TO SEMD EMAIL ADDRESS",
-                            Toast.LENGTH_SHORT
-                        ).show()
+                        sign_llogTxt.text = "EMAIL ALREADY IN USE! OR UNABLE TO SEMD EMAIL ADDRESS" +
+                                "\n WRONG EMIAL, SIGN UP FAILED"
                     }
                 }
         }
