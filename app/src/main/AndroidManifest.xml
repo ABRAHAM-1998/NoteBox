@@ -110,10 +110,11 @@
         <activity
             android:name=".Activities.DashBoard.MainActivity"
             android:screenOrientation="portrait" />
-        <activity
-            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Base.Theme.AppCompat" />
+
+        <activity android:name="com.canhub.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat"/> <!-- optional (needed if default theme has no action bar) -->
+
+
     </application>
 
 </manifest>

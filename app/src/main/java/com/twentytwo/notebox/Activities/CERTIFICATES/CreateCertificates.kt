@@ -3,24 +3,22 @@ package com.twentytwo.notebox.Activities.CERTIFICATES
 import android.app.ProgressDialog
 import android.content.Intent
 import android.graphics.Bitmap
+import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
-import android.provider.MediaStore
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.canhub.cropper.CropImage
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
-import com.theartofdev.edmodo.cropper.CropImage
-import com.theartofdev.edmodo.cropper.CropImageView
 import com.twentytwo.notebox.Activities.SecurePages.certific
 import com.twentytwo.notebox.Firestore.FirestoreClass
 import com.twentytwo.notebox.R
 import kotlinx.android.synthetic.main.activity_create_certificates.*
 import kotlinx.android.synthetic.main.cc_contacte_2nd.*
-import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -37,7 +35,10 @@ class CreateCertificates : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_certificates)
+
+
         storage = FirebaseStorage.getInstance()
+
         storageReference = storage!!.reference
 
         chooseBtn.setOnClickListener {
@@ -92,7 +93,11 @@ class CreateCertificates : AppCompatActivity() {
 
 
                     progressDialog.dismiss()
-                    Toast.makeText(applicationContext, "FilE UPLOADED SUCCESFULLY", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        applicationContext,
+                        "FilE UPLOADED SUCCESFULLY",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
                 .addOnFailureListener {
                     progressDialog.dismiss()
@@ -113,26 +118,36 @@ class CreateCertificates : AppCompatActivity() {
         if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
 
             val result = CropImage.getActivityResult(data)
-            ImagePrewiew.setImageURI(result.uri)
-            val bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, result.uri)
+            if (result != null) {
+                ImagePrewiew.setImageURI(result.uriContent)
+            }
+//            val bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, result?.uriContent)
             if (data != null) {
-                filePath = result.uri
+                if (result != null) {
+                    filePath = result.uriContent
+                }
             }
-            try {
-                val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, filePath)
-                ImagePrewiew!!.setImageBitmap(bitmap)
-            } catch (e: IOException) {
-                e.printStackTrace()
-            }
+//            try {
+//                val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, filePath)
+//                ImagePrewiew!!.setImageBitmap(bitmap)
+//            } catch (e: IOException) {
+//                e.printStackTrace()
+//            }
         }
     }
 
     private fun showFileChoser() {
-        CropImage.activity()
-            .setGuidelines(CropImageView.Guidelines.ON)
+
+        CropImage
+            .activity()
             .setAspectRatio(5, 4)
+            .setOutputCompressQuality(50)
             .setOutputCompressFormat(Bitmap.CompressFormat.JPEG)
+            .setBorderLineColor(Color.RED)
+            .setActivityTitle("NOTE BOX CROPPER")
+            .setCropMenuCropButtonTitle("Save Image")
             .start(this)
+
 
 //        val intent = Intent()
 //        intent.type = "image/*"

@@ -40,6 +40,9 @@
         android:ems="10"
         android:layout_margin="20dp"
         android:layout_centerHorizontal="true"
+        android:textColor="@color/black"
+        android:textColorHint="@color/purple_500"
+        android:backgroundTint="@color/purple_700"
         android:hint="Enter Descreption"
         android:inputType="textPersonName"
         android:text="" />
